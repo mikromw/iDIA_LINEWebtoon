@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.user.pmdproject.MainActivity">
+    <item
+        android:id="@+id/nav_home"
+        android:enabled="true"
+        android:title="@string/navtitle_home"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/nav_jadwal"
+        android:enabled="true"
+        android:title="@string/navtitle_jadwal"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/nav_challenge"
+        android:enabled="true"
+        android:title="@string/navtitle_challenge"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/nav_favoritku"
+        android:enabled="true"
+        android:title="@string/navtitle_favoritku"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/nav_more"
+        android:enabled="true"
+        android:title="@string/navtitle_more"
+        app:showAsAction="always|withText" />
+</menu>
