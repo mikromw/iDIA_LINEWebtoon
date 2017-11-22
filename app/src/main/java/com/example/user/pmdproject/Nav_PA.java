@@ -13,11 +13,13 @@ public class Nav_PA extends FragmentStatePagerAdapter {
 
     int navNoOfTabs;
 
+    //sebuah constructor kelas PageAdapter
     public Nav_PA(FragmentManager fm, int noOfTabs) {
         super(fm);
         this.navNoOfTabs = noOfTabs;
     }
 
+    //Fragment apa yang diambil ketika navigasi di-klik user
     @Override
     public Fragment getItem(int position) {
         switch(position)
@@ -42,6 +44,7 @@ public class Nav_PA extends FragmentStatePagerAdapter {
         }
     }
 
+    //mengembalikan jumlah tab navigasi yang akan digunakan pada BottomNavigationViewEx
     @Override
     public int getCount() {
         return navNoOfTabs;

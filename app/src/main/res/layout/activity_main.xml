@@ -6,15 +6,17 @@
     android:layout_height="match_parent"
     tools:context="com.example.user.pmdproject.MainActivity">
 
-    <android.support.v4.view.ViewPager
+    <!-- ViewPager yang di-custom dengan nama kelas UnSwipeableViewPager, dimana ViewPager tidak bisa digeser -->
+    <com.example.user.pmdproject.UnSwipeableViewPager
         android:id="@+id/mainvp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_above="@+id/bnve">
 
-    </android.support.v4.view.ViewPager>
+    </com.example.user.pmdproject.UnSwipeableViewPager>
 
+    <!-- BottomNavigationViewEx: BottomNavigationView yang di-custom -->
     <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
         android:id="@+id/bnve"
         android:layout_width="match_parent"
