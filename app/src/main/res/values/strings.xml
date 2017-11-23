@@ -5,6 +5,15 @@
     <string name="navtitle_challenge">CHALLENGE</string>
     <string name="navtitle_favoritku">FAVORITKU</string>
     <string name="navtitle_more">MORE</string>
+    <string name="daily_feature">Daily Featured</string>
+    <string name="senin">SEN</string>
+    <string name="selasa">SEL</string>
+    <string name="rabu">RAB</string>
+    <string name="kamis">KAM</string>
+    <string name="jumat">JUM</string>
+    <string name="sabtu">SAB</string>
+    <string name="minggu">MIN</string>
+    <string name="episode_lengkap">EPISODE LENGKAP</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -13,6 +13,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class MainActivity extends AppCompatActivity {
 
+    //array warna icon dan text ketika tab navigasi di-klik (secara berurutan dari Home, Daily, Challenge, Favorites dan More)
     public static String[] colorNavs = new String[] {"#00D22C", "#ED5F5E", "#F5A622", "#2B96DA", "#00D22C"};
 
     @Override
@@ -20,19 +21,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Pembuatan BottomNavigationViewEx
+        //1. Tidak ada animasi ketika user meng-klik navigasi
+        //2. Icon tetap dilengkapi dengan teks meskipun tab navigasi tidak di-klik (dipilih)
         BottomNavigationViewEx bnve = (BottomNavigationViewEx) findViewById(R.id.bnve);
         bnve.enableAnimation(false);
         bnve.enableShiftingMode(false);
         bnve.enableItemShiftingMode(false);
         bnve.setTextSize(10);
 
-        final ViewPager viewPager = (ViewPager)findViewById(R.id.mainvp);
+        //Pembuatan ViewPager dengan PageAdapter
+        final UnSwipeableViewPager viewPager = (UnSwipeableViewPager) findViewById(R.id.mainvp);
         final Nav_PA pagerAdapter = new Nav_PA(getSupportFragmentManager(), bnve.getItemCount());
 
+        //set PageAdaper pada ViewPager
         viewPager.setAdapter(pagerAdapter);
+
+        //Hubungkan BottomNavigationViewEx dengan ViewPager
         bnve.setupWithViewPager(viewPager);
 
-
+        //set warna icon dan teks untuk semua tab di Bottom Navigation dalam kondisi tertentu
         for(int i=0; i < bnve.getItemCount(); i++) {
             bnve.setTextTintList(i, new ColorStateList(
                     new int[][] {
