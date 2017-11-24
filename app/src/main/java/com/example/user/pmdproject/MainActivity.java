@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.GridView;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
@@ -39,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
         //Hubungkan BottomNavigationViewEx dengan ViewPager
         bnve.setupWithViewPager(viewPager);
+
+        //set GridView
+        GridView daily_gv = (GridView)findViewById(R.id.daily_grid);
+
 
         //set warna icon dan teks untuk semua tab di Bottom Navigation dalam kondisi tertentu
         for(int i=0; i < bnve.getItemCount(); i++) {
