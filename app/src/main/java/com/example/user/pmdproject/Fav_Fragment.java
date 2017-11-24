@@ -3,7 +3,9 @@ package com.example.user.pmdproject;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,7 +66,17 @@ public class Fav_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fav_, container, false);
+        View ret = inflater.inflate(R.layout.fragment_fav_, container, false);
+        // Get view pager
+        ViewPager favvp = ret.findViewById(R.id.favvp);
+        // Get top tab layout navigation
+        TabLayout favtabs = ret.findViewById(R.id.favtabs);
+        // set adapter for the view pager
+        favvp.setAdapter(new Custom_VPA_Fav(getActivity()));
+        // sync the tab with the view pager
+        favtabs.setupWithViewPager(favvp);
+        // done and return the view
+        return ret;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

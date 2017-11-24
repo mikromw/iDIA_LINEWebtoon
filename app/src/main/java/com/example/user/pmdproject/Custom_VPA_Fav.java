@@ -6,16 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Custom_VPA extends PagerAdapter{
+public class Custom_VPA_Fav extends PagerAdapter{
     private Context mContext;
 
-    public Custom_VPA(Context context){
+    public Custom_VPA_Fav(Context context){
         mContext = context;
     }
 
     @Override
     public Object instantiateItem(ViewGroup collection, int position){
-        ModelObject modelObject = ModelObject.values()[position];
+        Model_Object_Fav modelObject = Model_Object_Fav.values()[position];
         LayoutInflater inflater = LayoutInflater.from(mContext);
         ViewGroup layout = (ViewGroup) inflater.inflate(modelObject.getLayoutResId(), collection, false);
         collection.addView(layout);
@@ -29,7 +29,7 @@ public class Custom_VPA extends PagerAdapter{
 
     @Override
     public int getCount() {
-        return ModelObject.values().length;
+        return Model_Object_Fav.values().length;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class Custom_VPA extends PagerAdapter{
 
     @Override
     public CharSequence getPageTitle(int position) {
-        ModelObject customPagerEnum = ModelObject.values()[position];
+        Model_Object_Fav customPagerEnum = Model_Object_Fav.values()[position];
         return mContext.getString(customPagerEnum.getTitleResId());
     }
 }

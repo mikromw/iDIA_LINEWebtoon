@@ -1,6 +1,6 @@
 package com.example.user.pmdproject;
 
-public enum ModelObject {
+public enum Model_Object_Daily {
 
     MONDAY(R.string.senin, R.layout.monday),
     TUESDAY(R.string.selasa, R.layout.tuesday),
@@ -14,7 +14,7 @@ public enum ModelObject {
     private int mTitleResId;
     private int mLayoutResId;
 
-    ModelObject(int titleResId, int layoutResId){
+    Model_Object_Daily(int titleResId, int layoutResId){
         mTitleResId = titleResId;
         mLayoutResId = layoutResId;
     }

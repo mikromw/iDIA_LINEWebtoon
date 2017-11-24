@@ -14,6 +14,11 @@
     <string name="sabtu">SAB</string>
     <string name="minggu">MIN</string>
     <string name="episode_lengkap">EPISODE LENGKAP</string>
+    <string name="jadwal_harian">Jadwal Harian</string>
+    <string name="terbaru">TERBARU</string>
+    <string name="webtoon_favorit">WEBTOON FAVORIT</string>
+    <string name="unduhan">UNDUHAN</string>
+    <string name="komentar">KOMENTAR</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
