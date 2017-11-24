@@ -3,7 +3,10 @@ package com.example.user.pmdproject;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,7 +67,17 @@ public class Daily_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_daily_, container, false);
+        View ret = inflater.inflate(R.layout.fragment_daily_, container, false);
+        // Get view pager
+        ViewPager dailyvp = ret.findViewById(R.id.dailyvp);
+        // Get top tab layout navigation
+        TabLayout dailytabs = ret.findViewById(R.id.dailytabs);
+        // set adapter for the view pager
+        dailyvp.setAdapter(new Custom_VPA(getActivity()));
+        // sync the tab with the view pager
+        dailytabs.setupWithViewPager(dailyvp);
+        // done and return the view
+        return ret;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
