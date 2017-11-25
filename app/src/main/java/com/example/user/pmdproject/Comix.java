@@ -11,19 +11,18 @@ public class Comix {
         Drama, Fantasi, Komedi, Slice_of_Life, Romantis, Thriller, Horor
     }
     public long likes;
-    public Image[] headers;
-    public Image[] episodes;
+    public int imgs;
+//    public String[] episodes;
     public String descr;
-    public String[] author;
+    public String author;
     public String title;
     public Genre genre;
     public boolean isVisited;
-    public Comix(String title, String[] author, String descr, Image[] headers, Image[] episodes, Genre genre, long likes) {
+    public Comix(String title, String author, String descr, int imgs, Genre genre, long likes) {
         this.title = title;
         this.author = author;
         this.descr = descr;
-        this.headers = headers;
-        this.episodes = episodes;
+        this.imgs = imgs;
         this.genre = genre;
         this.likes = likes;
         this.isVisited = false;

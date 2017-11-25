@@ -4,23 +4,30 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.GridView;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     //array warna icon dan text ketika tab navigasi di-klik (secara berurutan dari Home, Daily, Challenge, Favorites dan More)
     public static String[] colorNavs = new String[] {"#00D22C", "#ED5F5E", "#F5A622", "#2B96DA", "#00D22C"};
+    public static ArrayList<Comix> comics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         //Pembuatan BottomNavigationViewEx
         //1. Tidak ada animasi ketika user meng-klik navigasi
@@ -41,8 +48,20 @@ public class MainActivity extends AppCompatActivity {
         //Hubungkan BottomNavigationViewEx dengan ViewPager
         bnve.setupWithViewPager(viewPager);
 
-        //set GridView
-        GridView daily_gv = (GridView)findViewById(R.id.daily_grid);
+
+        comics = new ArrayList<Comix>();
+        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.Drama, 776271));
+        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.Drama, 776271));
+        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.Drama, 776271));
+        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.Drama, 776271));
+        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.Drama, 776271));
+        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.Drama, 776271));
+        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.Drama, 776271));
+        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.Drama, 776271));
+        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.Drama, 776271));
+        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.Drama, 776271));
+        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.Drama, 776271));
+        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.Drama, 776271));
 
 
         //set warna icon dan teks untuk semua tab di Bottom Navigation dalam kondisi tertentu
