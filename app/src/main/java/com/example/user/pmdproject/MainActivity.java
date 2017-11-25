@@ -56,6 +56,20 @@ public class MainActivity extends AppCompatActivity {
                             Color.BLACK
                     })
             );
+            bnve.setIconTintList(i, new ColorStateList(
+                    new int[][] {
+                            new int[] {android.R.attr.state_checked},
+                            new int[] {android.R.attr.state_pressed},
+                            new int[] {android.R.attr.state_selected},
+                            new int[] {-android.R.attr.state_selected}
+                    },
+                    new int[] {
+                            Color.parseColor(colorNavs[i]),
+                            Color.parseColor(colorNavs[i]),
+                            Color.parseColor(colorNavs[i]),
+                            Color.BLACK
+                    })
+            );
         }
 
     }
