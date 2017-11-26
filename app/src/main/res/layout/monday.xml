@@ -11,11 +11,12 @@
         android:layout_height="match_parent"
         android:columnWidth="150dp"
         android:numColumns="3"
-        android:horizontalSpacing="10dp"
-        android:verticalSpacing="10dp"
+        android:horizontalSpacing="0.5dp"
+        android:verticalSpacing="0.5dp"
         android:stretchMode="columnWidth"
         android:gravity="center"
-        android:background="@color/magenta"/>
+        android:background="@color/grid_bg"
+        android:scrollbars="none"/>
 
 
 </FrameLayout>

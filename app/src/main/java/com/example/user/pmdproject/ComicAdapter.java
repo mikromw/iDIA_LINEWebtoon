@@ -54,15 +54,15 @@ public class ComicAdapter extends BaseAdapter {
             gv = (View)view;
         }
 
-        Log.i("pjg", String.valueOf(gv));
-//        final ImageView icon = (ImageView)view.findViewById(R.id.comic_icon);
-        final TextView title = (TextView)view.findViewById(R.id.comic_title);
-        final TextView genre = (TextView)view.findViewById(R.id.comic_genre);
+        gv.setBackgroundColor(0xFFFFFFFF);
+        final ImageView icon = (ImageView)gv.findViewById(R.id.comic_icon);
+        final TextView title = (TextView)gv.findViewById(R.id.comic_title);
+        final TextView genre = (TextView)gv.findViewById(R.id.comic_genre);
 
-        title.setText(String.valueOf(i));
-//        icon.setImageResource(comic.imgs);
-//        title.setText(comic.title);
-        genre.setText(comic.genre.toString().replaceAll("_", " "));
+        icon.setImageResource(comic.imgs);
+        title.setText(comic.title);
+        genre.setText(comic.genre.getName());
+        genre.setTextColor(comic.genre.getColor());
 
         return gv;
     }

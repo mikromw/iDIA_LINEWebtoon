@@ -2,20 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--<FrameLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content">-->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <!--<ImageView-->
-            <!--android:id="@+id/comic_icon"-->
-            <!--android:layout_width="200dp"-->
-            <!--android:layout_height="200dp"-->
-            <!--android:scaleType="centerCrop"/>-->
+        <com.example.user.pmdproject.SquareImageView
+            android:id="@+id/comic_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
 
-    <!--</FrameLayout>-->
+    </FrameLayout>
 
     <TextView
         android:id="@+id/comic_genre"
@@ -23,13 +24,16 @@
         android:layout_height="wrap_content"
         android:textStyle="normal"
         android:text="Something"
-        android:paddingTop="4dp" />
+        android:paddingTop="4dp"
+        android:paddingLeft="10dp"/>
 
     <TextView
         android:id="@+id/comic_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Amiss"
-        android:textStyle="bold" />
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:paddingLeft="10dp"/>
 
 </LinearLayout>

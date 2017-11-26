@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
 import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -77,27 +80,13 @@ public class Daily_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View ret = inflater.inflate(R.layout.fragment_daily_, container, false);
-        View days = getLayoutInflater().inflate(R.layout.monday, null);
-
-        final GridView gridView = (GridView)days.findViewById(R.id.daily_grid);
-        ComicAdapter booksAdapter = new ComicAdapter(getActivity(), MainActivity.comics);
-        Log.i("pjg", String.valueOf(booksAdapter.getCount()));
-        Log.i("pjg", String.valueOf(booksAdapter.getItem(0)));
-        gridView.setAdapter(booksAdapter);
-        Log.i("pjg", String.valueOf(gridView.getAdapter().isEmpty()));
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity().getApplicationContext(), "Something", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         // Get view pager
         ViewPager dailyvp = (ViewPager)ret.findViewById(R.id.dailyvp);
         // Get top tab layout navigation
         TabLayout dailytabs = (TabLayout)ret.findViewById(R.id.dailytabs);
         // set adapter for the view pager
-        dailyvp.setAdapter(new Custom_VPA(this.getContext()));
+        dailyvp.setAdapter(new SchedulePA(getChildFragmentManager()));
         // sync the tab with the view pager
         dailytabs.setupWithViewPager(dailyvp);
         // done and return the view

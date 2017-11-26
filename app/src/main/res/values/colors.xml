@@ -8,4 +8,5 @@
     <color name="magenta">#FF00FF</color>
     <color name="gray">#AAAAAA</color>
     <color name="green">#00D22C</color>
+    <color name="grid_bg">#E0E0E0</color>
 </resources>
