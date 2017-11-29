@@ -5,14 +5,9 @@
     <item
         android:id="@+id/nav_home"
         android:enabled="true"
-        android:icon="@drawable/ic_home"
         android:title="@string/navtitle_home"
-<<<<<<< HEAD
-        android:icon="@drawable/ic_house"
+        android:icon="@drawable/ic_home"
         app:showAsAction="always|withText" />
-=======
-        app:showAsAction="always" />
->>>>>>> 8674a2a0
     <item
         android:id="@+id/nav_jadwal"
         android:enabled="true"

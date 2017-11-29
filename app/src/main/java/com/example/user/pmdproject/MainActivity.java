@@ -10,7 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+
 import android.view.View;
+
 import android.widget.GridView;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
@@ -48,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         //Hubungkan BottomNavigationViewEx dengan ViewPager
         bnve.setupWithViewPager(viewPager);
 
-
         comics = new ArrayList<Comix>();
         comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
         comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
@@ -62,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
         comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
         comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-
 
         //set warna icon dan teks untuk semua tab di Bottom Navigation dalam kondisi tertentu
         for(int i=0; i < bnve.getItemCount(); i++) {
