@@ -38,11 +38,10 @@ public class Monday_Fragment extends Fragment {
                 Comix selectedComic = MainActivity.comics.get(position);
 
                 // 2
-                Intent detailIntent = new Intent(context, RecipeDetailActivity.class);
+                Intent detailIntent = new Intent(context, ComicDetailActivity.class);
 
                 // 3
-                detailIntent.putExtra("title", selectedRecipe.title);
-                detailIntent.putExtra("url", selectedRecipe.instructionUrl);
+                detailIntent.putParcelableArrayListExtra("chapters", selectedComic.chapters);
 
                 // 4
                 startActivity(detailIntent);

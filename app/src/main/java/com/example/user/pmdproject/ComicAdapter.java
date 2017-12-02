@@ -59,7 +59,8 @@ public class ComicAdapter extends BaseAdapter {
         final TextView title = (TextView)gv.findViewById(R.id.comic_title);
         final TextView genre = (TextView)gv.findViewById(R.id.comic_genre);
 
-        icon.setImageResource(comic.imgs);
+        icon.setImageBitmap(MainActivity.getBitmapFromAssets(mContext, comic.thumbnail));
+//        icon.setImageDrawable(MainActivity.getDrawableFromAssets(mContext, comic.thumbnail));
         title.setText(comic.title);
         genre.setText(comic.genre.getName());
         genre.setTextColor(comic.genre.getColor());

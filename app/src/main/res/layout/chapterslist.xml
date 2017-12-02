@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:padding="6dip" >
+
+    <com.example.user.pmdproject.ListImageView
+        android:id="@+id/chapter_icon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="TODO"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/chapter_date"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="10dp"
+        android:layout_toRightOf="@id/chapter_icon"
+        android:ellipsize="marquee"
+        android:maxLines="1"
+        android:text="Description"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/chapter_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/chapter_date"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:layout_toRightOf="@id/chapter_icon"
+        android:text="Example application"
+        android:textSize="16sp" />
+
+</RelativeLayout>

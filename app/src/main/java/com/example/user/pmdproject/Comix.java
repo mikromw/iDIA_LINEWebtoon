@@ -2,6 +2,9 @@ package com.example.user.pmdproject;
 
 import android.media.Image;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by User on 24/11/2017.
  */
@@ -33,20 +36,21 @@ public class Comix {
         }
     }
     public long likes;
-    public int imgs;
-//    public String[] episodes;
+    public String thumbnail;
+    public ArrayList<Chapters> chapters;
     public String descr;
     public String author;
     public String title;
     public Genre genre;
     public boolean isVisited;
-    public Comix(String title, String author, String descr, int imgs, Genre genre, long likes) {
+    public Comix(String title, String author, String descr, String thumbnail, Genre genre, long likes) {
         this.title = title;
         this.author = author;
         this.descr = descr;
-        this.imgs = imgs;
+        this.thumbnail = thumbnail;
         this.genre = genre;
         this.likes = likes;
         this.isVisited = false;
+        this.chapters = new ArrayList<Chapters>();
     }
 }

@@ -1,7 +1,12 @@
 package com.example.user.pmdproject;
 
+import android.content.Context;
+import android.content.res.AssetManager;
 import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
@@ -17,7 +22,15 @@ import android.widget.GridView;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.regex.Matcher;
+
+import static android.R.attr.bitmap;
+import static com.example.user.pmdproject.R.id.bnve;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,18 +64,20 @@ public class MainActivity extends AppCompatActivity {
         bnve.setupWithViewPager(viewPager);
 
         comics = new ArrayList<Comix>();
-        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
+        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", "cover/GOSU.jpg", Comix.Genre.DRAMA, 776271));
+        comics.add(new Comix("Adventures of God", "Matteo & Corey", "Follow God's mishaps in Heaven - as a ruler who's often forgetful, has a fragile ego, and a drinking problem.", "cover/Adventures of God.jpg", Comix.Genre.KOMEDI, 776271));
+        comics.get(0).chapters.add(new Chapters(this, "The Box", new GregorianCalendar(2017, 10, 25), "content/Comedy/Adventures of God/Sampul Chapter/84.png", "content/Comedy/Adventures of God/eps84"));
+
+//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
+//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
+//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
+//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
+//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
+//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
+//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
+//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
+//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
+//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
 
         //set warna icon dan teks untuk semua tab di Bottom Navigation dalam kondisi tertentu
         for(int i=0; i < bnve.getItemCount(); i++) {
@@ -96,5 +111,53 @@ public class MainActivity extends AppCompatActivity {
             );
         }
 
+    }
+
+    public static Bitmap getBitmapFromAssets(Context context, String fileName) {
+        AssetManager asm = context.getAssets();
+        InputStream istr;
+        Bitmap bitmap = null;
+        try {
+            istr = asm.open("comic/" + fileName);
+            bitmap = BitmapFactory.decodeStream(istr);
+            istr.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+    }
+
+    public static ArrayList<Bitmap> getBitmapsFromSubFolder(Context context, String fileName) {
+        String[] chapterImgs;
+        InputStream istr;
+        AssetManager asm = context.getAssets();
+        ArrayList<Bitmap> bms = new ArrayList<Bitmap>();
+        Bitmap bitmap = null;
+        try {
+            chapterImgs = asm.list(fileName.replaceAll("/", Matcher.quoteReplacement(File.separator)));
+            for(int i=0; i < chapterImgs.length; i++) {
+                istr = asm.open("comic/" + chapterImgs[i]);
+                bitmap = BitmapFactory.decodeStream(istr);
+                bms.add(bitmap);
+                istr.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bms;
+    }
+
+    public static Drawable getDrawableFromAssets(Context context, String fileName) {
+        AssetManager asm = context.getAssets();
+        InputStream istr;
+        Drawable d = null;
+        try {
+            istr = asm.open("comic/" + fileName);
+            d = Drawable.createFromStream(istr, null);
+            istr.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return d;
     }
 }
