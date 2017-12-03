@@ -41,7 +41,8 @@ public class Monday_Fragment extends Fragment {
                 Intent detailIntent = new Intent(context, ComicDetailActivity.class);
 
                 // 3
-                detailIntent.putParcelableArrayListExtra("chapters", selectedComic.chapters);
+//                detailIntent.putParcelableArrayListExtra("chapters", selectedComic.chapters);
+                detailIntent.putExtra("comic", selectedComic);
 
                 // 4
                 startActivity(detailIntent);
