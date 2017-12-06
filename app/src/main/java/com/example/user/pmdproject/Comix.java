@@ -15,12 +15,17 @@ public class Comix implements Parcelable {
 
     public enum Genre implements Parcelable{
         DRAMA("Drama", 0xFF00B19A),
-        FANTASI("Fantasi", 0xFF8B00E9),
-        KOMEDI("Komedi", 0xFFEEA800),
+        FANTASY("Fantasy", 0xFF8B00E9),
+        COMEDY("Comedy", 0xFFEEA800),
         SLICE_OF_LIFE("Slice Of Life", 0xFF9AB710),
-        ROMANTIS("Romantis", 0xFFFD337F),
+        ROMANCE("Romance", 0xFFFD337F),
         THRILLER("Thriller", 0xFFC00355),
-        HOROR("Horor", 0xFFBE0000);
+        HOROR("Horor", 0xFFBE0000),
+        AKSI("Action", 0xFF006AFA),
+        SUPERHERO("Superhero", 0xFF4A20E2),
+        HEARTWARMING("Heartwarming", 0xFFFD6900),
+        SPORTS("Sports", 0xFF1BA8F2),
+        SCI_FI("Sci-Fi", 0xFF2D4464);
 
         private final String genre_name;
         private final int genre_colorid;

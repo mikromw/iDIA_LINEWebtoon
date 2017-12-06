@@ -22,6 +22,7 @@ public class ComicDetailActivity extends AppCompatActivity {
 
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("");
         }
 
 //        ArrayList<Chapters> sample = this.getIntent().getParcelableArrayListExtra("chapters");

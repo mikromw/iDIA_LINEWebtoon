@@ -26,6 +26,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 
@@ -74,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
         comics.get(3).chapters.add(new Chapters(this, "Ep. 9", new GregorianCalendar(2016, 0, 24), "content/Romance/Eggnoid/Sampul Chapter/ep9.png", "comic/content/Romance/Eggnoid/ep9"));
         comics.add(new Comix("Small World", "Wonsun Jin", "What do you do when you're having a bad day? Need a hug? Or just a laugh? Call your boyfriend of course! Follow along with Robin and Julien as they navigate in their own small world.", "cover/Small World.jpg", Comix.Genre.SLICE_OF_LIFE, 776271));
         comics.get(4).chapters.add(new Chapters(this, "Ep. 43 - Chibi", new GregorianCalendar(2017, 10, 21), "content/Slice of Life/Small World/Sampul Chapter/43.png", "comic/content/Slice of Life/Small World/ep43"));
-
+        comics.add(new Comix("Melvina's Therapy", "A.Rasen", "Anxiety, loneliness, depression... with a regular therapy you can deal with these issues, but Melvina's Therapy is about something deeper: creepy secrets remaining in the darkest space of your mind, waiting for you...", "cover/Melvina's Therapy.jpg", Comix.Genre.HOROR, 776271));
+        comics.get(5).chapters.add(new Chapters(this, "Ep. 10 - Chairs (4)", new GregorianCalendar(2017, 5, 22), "content/Horror/Melvina's Therapy/Sampul Chapter/10.png", "comic/content/Horror/Melvina's Therapy/ep10"));
 
 
 //        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
@@ -136,25 +139,29 @@ public class MainActivity extends AppCompatActivity {
         return bitmap;
     }
 
-    public static ArrayList<Bitmap> getBitmapsFromSubFolder(Context context, String fileName) {
-        String[] chapterImgs;
+    public static String[] getBitmapsFromSubFolder(Context context, String fileName) {
+        String[] chapterImgs = null;
         InputStream istr;
         AssetManager asm = context.getAssets();
         ArrayList<Bitmap> bms = new ArrayList<Bitmap>();
         Bitmap bitmap = null;
         try {
             chapterImgs = asm.list(fileName.replaceAll("/", Matcher.quoteReplacement(File.separator)));
-            Log.i("pjg", String.valueOf(chapterImgs.length));
-            for(int i=0; i < chapterImgs.length; i++) {
-                istr = asm.open(fileName + "/" + chapterImgs[i]);
-                bitmap = BitmapFactory.decodeStream(istr);
-                bms.add(bitmap);
-                istr.close();
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return bms;
+        Arrays.sort(chapterImgs, new Comparator<String>() {
+            public int compare(String s1, String s2) {
+                try {
+                    int i1 = Integer.parseInt(s1.substring(0, s1.lastIndexOf('.')));
+                    int i2 = Integer.parseInt(s2.substring(0, s2.lastIndexOf('.')));
+                    return i1 - i2;
+                } catch(NumberFormatException e) {
+                    throw new AssertionError(e);
+                }
+            }
+        });
+        return chapterImgs;
     }
 
     public static Drawable getDrawableFromAssets(Context context, String fileName) {

@@ -2,6 +2,7 @@ package com.example.user.pmdproject;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,9 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -33,15 +37,24 @@ public class ReadEpisodeActivity extends AppCompatActivity {
 //        Log.i("pjg", String.valueOf(sample.size()));
         LinearLayout ll = (LinearLayout)findViewById(R.id.eps_preview);
 
-        ArrayList<Bitmap> thumbs = MainActivity.getBitmapsFromSubFolder(this, sample.chapterDirs);
+        String[] imgFiles = MainActivity.getBitmapsFromSubFolder(this, sample.chapterDirs);
 
-        Log.i("pjg", String.valueOf(thumbs.size()));
-        for(int i=0; i < thumbs.size(); i++) {
+        Picasso mPicasso = Picasso.with(this);
+
+        mPicasso.setIndicatorsEnabled(true);
+
+        for(int i=0; i < imgFiles.length; i++) {
+            Log.i("pjg", String.valueOf(imgFiles[i]));
+        }
+//        Log.i("pjg", String.valueOf(thumbs.size()));
+        for(int i=0; i < imgFiles.length; i++) {
             ImageView img = new ImageView(this);
             img.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            img.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            img.setScaleType(ImageView.ScaleType.FIT_XY);
             img.setAdjustViewBounds(true);
-            img.setImageBitmap(thumbs.get(i));
+            mPicasso.load("file:///android_asset/" + sample.chapterDirs + "/" + imgFiles[i])
+                    .networkPolicy(NetworkPolicy.OFFLINE)
+                    .into(img);
 
             ll.addView(img);
         }
