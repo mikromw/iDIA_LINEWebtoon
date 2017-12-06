@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.user.pmdproject.GridImageView
+            android:id="@+id/comic_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/comic_genre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:text="Something"
+        android:paddingTop="4dp"
+        android:gravity="top|left"
+        android:minLines="2"
+        android:paddingLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/comic_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Amiss"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="top|left"
+        android:minLines="2"
+        android:paddingLeft="10dp"/>
+
+</LinearLayout>

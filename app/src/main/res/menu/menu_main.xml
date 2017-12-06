@@ -5,9 +5,9 @@
     <item
         android:id="@+id/nav_home"
         android:enabled="true"
-        android:icon="@drawable/ic_home"
         android:title="@string/navtitle_home"
-        app:showAsAction="always" />
+        android:icon="@drawable/ic_home"
+        app:showAsAction="always|withText" />
     <item
         android:id="@+id/nav_jadwal"
         android:enabled="true"
