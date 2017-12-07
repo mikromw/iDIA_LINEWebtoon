@@ -1,12 +1,16 @@
 package com.example.user.pmdproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import static android.R.attr.button;
 
 
 /**
@@ -64,7 +68,19 @@ public class More_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_more_, container, false);
+        View ret = inflater.inflate(R.layout.fragment_more_, container, false);
+
+        Button btnSearch = (Button)ret.findViewById(R.id.searchBtn);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent searchIntent = new Intent(getActivity().getApplicationContext(), SearchActivity.class);
+
+                startActivity(searchIntent);
+            }
+        });
+        return ret;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

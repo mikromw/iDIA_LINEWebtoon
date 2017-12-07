@@ -46,6 +46,8 @@ public class ReadEpisodeActivity extends AppCompatActivity {
         for(int i=0; i < imgFiles.length; i++) {
             Log.i("pjg", String.valueOf(imgFiles[i]));
         }
+
+        Log.i("pjg", String.valueOf(imgFiles.length));
 //        Log.i("pjg", String.valueOf(thumbs.size()));
         for(int i=0; i < imgFiles.length; i++) {
             ImageView img = new ImageView(this);

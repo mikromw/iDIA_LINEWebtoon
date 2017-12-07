@@ -5,8 +5,8 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
-        android:roundIcon="@mipmap/app_icon_round"
         android:label="WEBTOON"
+        android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.WithActionBar">
         <activity
@@ -25,7 +25,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ComicDetailActivity" />
-        <activity android:name=".ReadEpisodeActivity"></activity>
+        <activity android:name=".ReadEpisodeActivity" />
+        <activity
+            android:name=".SearchActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
