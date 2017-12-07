@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static android.R.attr.editable;
+
 public class SearchActivity extends AppCompatActivity {
 
     ArrayList<Comix> searchList;
@@ -26,7 +28,10 @@ public class SearchActivity extends AppCompatActivity {
         final EditText searchTxt = (EditText)findViewById(R.id.searchTxt);
         searchTxt.requestFocus();
 
+        final FavComicAdapter adapter = new FavComicAdapter(this, searchList);
         final ListView searchResults = (ListView)findViewById(R.id.searchResults);
+        searchResults.setAdapter(adapter);
+
 
         searchTxt.addTextChangedListener(new TextWatcher() {
 
@@ -37,19 +42,18 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                FavComicAdapter adapter = null;
                 String searchQuery = searchTxt.getText().toString();
                 int textLength = searchQuery.length();
                 searchList.clear();
 
                 for(int j=0; j < MainActivity.comics.size(); j++) {
                     Comix itemAtThisIndex = MainActivity.comics.get(j);
-                    if(itemAtThisIndex.author.toLowerCase().contains(searchQuery.toLowerCase()) || itemAtThisIndex.title.toLowerCase().contains(searchQuery.toLowerCase())) {
+                    if(!searchQuery.trim().isEmpty() && (itemAtThisIndex.author.toLowerCase().contains(searchQuery.toLowerCase()) || itemAtThisIndex.title.toLowerCase().contains(searchQuery.toLowerCase()))) {
                         searchList.add(itemAtThisIndex);
-                        adapter = new FavComicAdapter(SearchActivity.this, searchList);
-                        searchResults.setAdapter(adapter);
                     }
                 }
+                adapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -57,6 +61,9 @@ public class SearchActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+    public void initList() {
 
     }
 }

@@ -7,7 +7,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -28,6 +30,19 @@ public class ComicDetailActivity extends AppCompatActivity {
 //        ArrayList<Chapters> sample = this.getIntent().getParcelableArrayListExtra("chapters");
 //        Log.i("pjg", String.valueOf(sample.size()));
         ListView lv = (ListView)findViewById(R.id.chapters);
+        ImageView detailImg = (ImageView)findViewById(R.id.img_id);
+        TextView textGenre = (TextView)findViewById(R.id.detail_genre);
+        TextView textTitle = (TextView)findViewById(R.id.detail_title);
+        TextView textDescr = (TextView)findViewById(R.id.detail_descr);
+        TextView textAuthor = (TextView)findViewById(R.id.detail_authors);
+
+        detailImg.setImageBitmap(MainActivity.getBitmapFromAssets(this, sample.thumbnail));
+        textGenre.setText(sample.genre.getName());
+        textGenre.setTextColor(sample.genre.getColor());
+        textTitle.setText(sample.title);
+        textDescr.setText(sample.descr);
+        textAuthor.setText(sample.author);
+
         lv.setAdapter(new ChaptersAdapter(this, sample.chapters));
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
