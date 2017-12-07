@@ -8,7 +8,7 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:label="WEBTOON"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.WithActionBar">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation"
@@ -24,8 +24,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".ComicDetailActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ComicDetailActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity android:name=".ReadEpisodeActivity"></activity>
     </application>
 

@@ -1,141 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="16dp"
+    android:layout_marginTop="24dp"
+    android:layout_marginBottom="24dp"
     tools:context="com.example.user.pmdproject.LoginActivity">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/login.image"
-            android:layout_width="match_parent"
-            android:layout_height="144dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginTop="88dp"
-            android:layout_gravity="bottom"
-            android:src="@drawable/login_image" />
-        <TextView
-            android:id="@+id/login.hr"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/login.image"
-            android:background="@color/grey"/>
-    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="32dp"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <ImageView
+            android:id="@+id/login.image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:layout_marginTop="24dp">
+            android:layout_height="128dp"
 
-            <Button
-                android:id="@+id/login.line"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/green"
-                android:paddingBottom="8dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:paddingTop="8dp"
-                android:text="@string/line_login"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="16dp"></Button>
+            android:src="@drawable/login_image" />
 
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_alignLeft="@+id/login.line"
-                android:layout_alignStart="@+id/login.line"
-                android:layout_alignTop="@+id/login.line"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/login_line"
-                android:translationZ="2dp" />
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/login.hr"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:layout_marginTop="24dp"
-            android:orientation="horizontal">
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@color/grey" />
-
-            <TextView
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="OR Log in with"
-                android:textAlignment="center"
-                android:textColor="@color/gray" />
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="24dp">
 
-            <TextView
+                <Button
+                    android:id="@+id/login.line"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/green"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/line_login"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"></Button>
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_alignLeft="@+id/login.line"
+                    android:layout_alignStart="@+id/login.line"
+                    android:layout_alignTop="@+id/login.line"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/login_line"
+                    android:translationZ="2dp" />
+            </RelativeLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@color/grey" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
-            android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/grey" />
 
-            <ImageView
-                android:layout_width="68dp"
-                android:layout_height="68dp"
-                android:layout_weight="1"
-                android:src="@drawable/login_fb" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="OR Log in with"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray" />
 
-            <ImageView
-                android:layout_width="68dp"
-                android:layout_height="68dp"
-                android:layout_weight="1"
-                android:src="@drawable/login_google" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/grey" />
+            </LinearLayout>
 
-            <ImageView
-                android:layout_width="68dp"
-                android:layout_height="68dp"
-                android:layout_weight="1"
-                android:src="@drawable/login_twitter" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/login_fb" />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/login_google" />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/login_twitter" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="24dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom">
 
         <LinearLayout
             android:id="@+id/login.skip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
-            android:layout_marginBottom="24dp"
             android:orientation="horizontal"
             android:paddingBottom="8dp"
             android:paddingLeft="16dp"
@@ -194,6 +194,6 @@
                 android:textAlignment="textEnd"
                 android:textColor="@color/gray" />
         </LinearLayout>
-    </FrameLayout>
+    </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>
