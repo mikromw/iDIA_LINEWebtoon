@@ -57,9 +57,11 @@ public class ComicAdapter extends BaseAdapter {
         gv.setBackgroundColor(0xFFFFFFFF);
         final ImageView icon = (ImageView)gv.findViewById(R.id.comic_icon);
         final TextView title = (TextView)gv.findViewById(R.id.comic_title);
-
+        final TextView genre = (TextView)gv.findViewById(R.id.comic_genre);
         icon.setImageBitmap(MainActivity.getBitmapFromAssets(mContext, comic.thumbnail));
         title.setText(comic.title);
+        genre.setText(comic.genre.getName());
+        genre.setTextColor(comic.genre.getColor());
 
         return gv;
     }

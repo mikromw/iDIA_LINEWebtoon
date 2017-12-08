@@ -45,7 +45,7 @@
         android:id="@+id/comic_likes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Likes"
+        tools:text="Likes"
         android:textColor="@color/green"
         android:textSize="12dp"
         android:textStyle="normal"
