@@ -1,33 +1,33 @@
 package com.example.user.pmdproject;
 
 import android.content.Context;
-import android.util.Log;
+import android.support.v7.widget.ButtonBarLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 /**
- * Created by User on 24/11/2017.
+ * Created by Chris Shinta on 08/12/2017.
  */
 
-public class ComicAdapter extends BaseAdapter {
-
+public class home_favGVAdapter extends BaseAdapter {
     private final Context mContext;
     private final ArrayList<Comix> comics;
 
-    public ComicAdapter(Context context, ArrayList<Comix> comics) {
-        this.mContext = context;
+    public home_favGVAdapter(Context mContext, ArrayList<Comix> comics) {
+        this.mContext = mContext;
         this.comics = comics;
     }
 
     @Override
     public int getCount() {
-        return comics.size();
+        return 3;
     }
 
     @Override
@@ -45,21 +45,24 @@ public class ComicAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final Comix comic = comics.get(i);
         View gv;
-
         if(view == null) {
             gv = new View(mContext);
-            gv = inflater.inflate(R.layout.linearlayout_comic, viewGroup, false);
+            gv = inflater.inflate(R.layout.home_fav_layout, viewGroup, false);
         }
         else {
             gv = (View)view;
         }
-
-        gv.setBackgroundColor(0xFFFFFFFF);
         final ImageView icon = (ImageView)gv.findViewById(R.id.comic_icon);
         final TextView title = (TextView)gv.findViewById(R.id.comic_title);
-
+        final ButtonBarLayout fav = (ButtonBarLayout)gv.findViewById(R.id.comic_fav);
         icon.setImageBitmap(MainActivity.getBitmapFromAssets(mContext, comic.thumbnail));
         title.setText(comic.title);
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "Favorit tidak aktif", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return gv;
     }

@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         comics.get(3).chapters.add(new Chapters(this, "Ep. 9", new GregorianCalendar(2016, 0, 24), "content/Romance/Eggnoid/Sampul Chapter/ep9.png", "comic/content/Romance/Eggnoid/ep9"));
         comics.add(new Comix("Small World", "Wonsun Jin", "What do you do when you're having a bad day? Need a hug? Or just a laugh? Call your boyfriend of course! Follow along with Robin and Julien as they navigate in their own small world.", "cover/Small World.jpg", Comix.Genre.SLICE_OF_LIFE, 776271));
         comics.get(4).chapters.add(new Chapters(this, "Ep. 43 - Chibi", new GregorianCalendar(2017, 10, 21), "content/Slice of Life/Small World/Sampul Chapter/43.png", "comic/content/Slice of Life/Small World/ep43"));
-        comics.add(new Comix("Melvina's Therapy", "A.Rasen", "Anxiety, loneliness, depression... with a regular therapy you can deal with these issues, but Melvina's Therapy is about something deeper: creepy secrets remaining in the darkest space of your mind, waiting for you...", "cover/Melvina's Therapy.jpg", Comix.Genre.HOROR, 776271));
+        comics.add(new Comix("Melvina's Therapy", "A.Rasen", "Anxiety, loneliness, depression... with a regular therapy you can deal with these issues, but Melvina's Therapy is about something deeper: creepy secrets remaining in the darkest space of your mind, waiting for you...", "cover/Melvina's Therapy.jpg", Comix.Genre.HORROR, 776271));
         comics.get(5).chapters.add(new Chapters(this, "Ep. 10 - Chairs (4)", new GregorianCalendar(2017, 5, 22), "content/Horror/Melvina's Therapy/Sampul Chapter/10.png", "comic/content/Horror/Melvina's Therapy/ep10"));
 
 

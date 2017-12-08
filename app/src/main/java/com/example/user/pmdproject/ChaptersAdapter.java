@@ -50,6 +50,7 @@ public class ChaptersAdapter extends BaseAdapter {
         final Chapters chap = chapters.get(i);
         View lv = inflater.inflate(R.layout.chapterslist, viewGroup, false);
 
+        lv.setBackgroundColor(0xEEFFFFFF);
         final ImageView icon = (ImageView) lv.findViewById(R.id.chapter_icon);
         final TextView title = (TextView) lv.findViewById(R.id.chapter_title);
         final TextView release_date = (TextView) lv.findViewById(R.id.chapter_date);
