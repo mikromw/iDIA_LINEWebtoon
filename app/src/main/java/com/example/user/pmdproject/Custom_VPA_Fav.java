@@ -22,6 +22,7 @@ public class Custom_VPA_Fav extends PagerAdapter{
         return layout;
     }
 
+
     @Override
     public void destroyItem(ViewGroup collection, int position, Object view) {
         collection.removeView((View) view);

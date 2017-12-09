@@ -9,6 +9,10 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import static com.example.user.pmdproject.R.id.dailytabs;
+import static com.example.user.pmdproject.R.id.dailyvp;
 
 
 /**
@@ -67,15 +71,17 @@ public class Fav_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View ret = inflater.inflate(R.layout.fragment_fav_, container, false);
+
         // Get view pager
-        ViewPager favvp = ret.findViewById(R.id.favvp);
+        ViewPager favvp = (ViewPager)ret.findViewById(R.id.favvp);
         // Get top tab layout navigation
-        TabLayout favtabs = ret.findViewById(R.id.favtabs);
+        TabLayout favtabs = (TabLayout)ret.findViewById(R.id.favtabs);
         // set adapter for the view pager
-        favvp.setAdapter(new Custom_VPA_Fav(getActivity()));
+        favvp.setAdapter(new FavPA(getChildFragmentManager()));
         // sync the tab with the view pager
         favtabs.setupWithViewPager(favvp);
         // done and return the view
+
         return ret;
     }
 

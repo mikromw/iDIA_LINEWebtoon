@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.example.user.pmdproject.ListImageView
+        android:id="@+id/comic_icon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="TODO"
+        android:scaleType="centerCrop" />
+        <TextView
+            android:id="@+id/comic_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/comic_icon"
+            android:paddingLeft="8dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="8dp"
+            android:text="Example application"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/comic_author"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/comic_title"
+            android:paddingLeft="8dp"
+            android:layout_toRightOf="@id/comic_icon"
+            android:ellipsize="marquee"
+            android:maxLines="1"
+            android:text="Author"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/comic_recent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="8dp"
+            android:paddingBottom="8dp"
+            android:layout_toRightOf="@id/comic_icon"
+            android:ellipsize="marquee"
+            android:maxLines="1"
+            tools:text="Recent Date"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/comic_chapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            tools:text="CH"
+            android:paddingRight="16dp"
+            android:layout_centerVertical="true"/>
+</RelativeLayout>

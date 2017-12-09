@@ -36,7 +36,7 @@ public class SplashScreen extends Activity {
 
         @Override
         protected void onPostExecute(String result) {
-            Intent i = new Intent(SplashScreen.this, MainActivity.class);
+            Intent i = new Intent(SplashScreen.this, LoginActivity.class);
             i.putExtra("data", result);
             startActivity(i);
             finish();
