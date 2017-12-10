@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     tools:context="com.example.user.pmdproject.Home_Fragment"
     android:background="@color/grey">
     <LinearLayout
@@ -201,6 +202,15 @@
                 android:paddingTop="4dp"
                 android:paddingRight="8dp"/>
         </RelativeLayout>
+        <com.example.user.pmdproject.CustomListView_nonScrollable
+            android:id="@+id/home.lv_pop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:divider="@color/grey"
+            android:dividerHeight="0.5dp">
+
+        </com.example.user.pmdproject.CustomListView_nonScrollable>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ListView;
 
 
 /**
@@ -149,7 +150,18 @@ public class Home_Fragment extends Fragment {
 
 
         // Populer
+        ListView lv_pop = (ListView) rootView.findViewById(R.id.home_lv_pop);
+        lv_pop.setAdapter(new home_popLVAdapter(context, MainActivity.comics));
 
+        lv_pop.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Comix selectedComic = MainActivity.comics.get(position);
+                Intent detailIntent = new Intent(context, ComicDetailActivity.class);
+                detailIntent.putExtra("comic", selectedComic);
+                startActivity(detailIntent);
+            }
+        });
         // Mulai terbitkan komik karyamu sendiri
 
         // footer

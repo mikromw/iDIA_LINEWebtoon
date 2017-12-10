@@ -12,12 +12,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Text"
-            android:id="@+id/ClickableText"
+            android:id="@+id/genFav.title"
             android:textSize="16dp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:paddingTop="8dp"
             android:paddingLeft="8dp"
+            android:paddingBottom="4dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text"
+            android:layout_toRightOf="@id/genFav.title"
+            android:id="@+id/genFav.des"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingLeft="16dp"
             android:paddingBottom="4dp"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -35,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
