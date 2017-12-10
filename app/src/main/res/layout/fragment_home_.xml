@@ -110,6 +110,7 @@
                 android:layout_alignParentRight="true"
                 android:paddingRight="8dp"
                 android:paddingTop="4dp"
+                android:backgroundTint="@color/white"
                 android:src="@drawable/ic_chevron_right_black_24dp" />
         </RelativeLayout>
 
