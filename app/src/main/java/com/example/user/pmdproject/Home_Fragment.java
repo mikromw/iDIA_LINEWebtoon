@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,9 @@ public class Home_Fragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    public static int current_page = 0;
+    public static ViewPager vp;
+    public static HomeCarouselAdapter hcAdapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -69,6 +73,25 @@ public class Home_Fragment extends Fragment {
         final Context context = getActivity().getApplicationContext();
         View rootView = inflater.inflate(R.layout.fragment_home_, container, false);
 
+        // Carousel
+        vp = (ViewPager) rootView.findViewById(R.id.home_carousel);
+        hcAdapter = new HomeCarouselAdapter(getChildFragmentManager(), getContext(), container);
+        vp.setAdapter(hcAdapter);
+
+        vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
+            @Override
+            public void onPageSelected(int position) {
+                current_page = position;
+                MainActivity.stopTimer();
+                MainActivity.startTimer();
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) { }
+        });
+
+        // Favoritku
         GridView gv = (GridView) rootView.findViewById(R.id.home_gv_fav);
         gv.setAdapter(new home_favGVAdapter(context, MainActivity.comics));
 
@@ -81,6 +104,56 @@ public class Home_Fragment extends Fragment {
                 startActivity(detailIntent);
             }
         });
+
+        // Baru dirilis
+        CustomGridView gv_new = (CustomGridView) rootView.findViewById(R.id.home_gv_new);
+        gv_new.setAdapter(new home_newGVAdapter(context, MainActivity.comics));
+
+        gv_new.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Comix selectedComic = MainActivity.comics.get(position);
+                Intent detailIntent = new Intent(context, ComicDetailActivity.class);
+                detailIntent.putExtra("comic", selectedComic);
+                startActivity(detailIntent);
+            }
+        });
+
+        // Webtoon hari ini
+        CustomGridView gv_today = (CustomGridView) rootView.findViewById(R.id.home_gv_today);
+        gv_today.setAdapter(new home_todayGVAdapter(context, MainActivity.comics));
+
+        gv_today.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Comix selectedComic = MainActivity.comics.get(position);
+                Intent detailIntent = new Intent(context, ComicDetailActivity.class);
+                detailIntent.putExtra("comic", selectedComic);
+                startActivity(detailIntent);
+            }
+        });
+
+        // Genre favoritku
+        CustomGridView gv_genfav = (CustomGridView) rootView.findViewById(R.id.home_gv_genfav);
+        gv_genfav.setAdapter(new home_genfavGVAdapter(context, MainActivity.comics));
+
+        gv_genfav.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Comix selectedComic = MainActivity.comics.get(position);
+                Intent detailIntent = new Intent(context, ComicDetailActivity.class);
+                detailIntent.putExtra("comic", selectedComic);
+                startActivity(detailIntent);
+            }
+        });
+
+
+        // Populer
+
+        // Mulai terbitkan komik karyamu sendiri
+
+        // footer
+
         return rootView;
     }
 

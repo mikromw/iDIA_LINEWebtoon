@@ -32,7 +32,7 @@ public class Fav_Fragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    public static ViewPager favvp;
     private OnFragmentInteractionListener mListener;
 
     public Fav_Fragment() {
@@ -73,7 +73,7 @@ public class Fav_Fragment extends Fragment {
         View ret = inflater.inflate(R.layout.fragment_fav_, container, false);
 
         // Get view pager
-        ViewPager favvp = (ViewPager)ret.findViewById(R.id.favvp);
+        favvp = (ViewPager)ret.findViewById(R.id.favvp);
         // Get top tab layout navigation
         TabLayout favtabs = (TabLayout)ret.findViewById(R.id.favtabs);
         // set adapter for the view pager

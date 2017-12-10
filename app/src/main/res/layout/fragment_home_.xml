@@ -8,12 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="224dp"
+            android:id="@+id/home_carousel">
+        </android.support.v4.view.ViewPager>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true">
+            android:clickable="true"
+            android:onClick="toFavorite">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,12 +74,24 @@
                 android:paddingTop="4dp"
                 android:paddingRight="8dp"/>
         </RelativeLayout>
+
+        <com.example.user.pmdproject.CustomGridView
+            android:id="@+id/home.gv_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:verticalSpacing="0.5dp"
+            android:numColumns="1"
+            android:stretchMode="columnWidth"
+            android:layout_marginBottom="8dp">
+        </com.example.user.pmdproject.CustomGridView>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true">
+            android:clickable="true"
+            android:onClick="toDaily">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -92,6 +110,44 @@
                 android:paddingTop="4dp"
                 android:paddingRight="8dp"/>
         </RelativeLayout>
+
+        <com.example.user.pmdproject.CustomGridView
+            android:id="@+id/home.gv_today"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:verticalSpacing="0.5dp"
+            android:numColumns="3"
+            android:stretchMode="columnWidth"
+            android:layout_marginBottom="8dp">
+        </com.example.user.pmdproject.CustomGridView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GENRE FAVORITKU"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:paddingTop="8dp"
+                android:paddingLeft="8dp"
+                android:paddingBottom="4dp"/>
+        </RelativeLayout>
+
+        <com.example.user.pmdproject.CustomGridView
+            android:id="@+id/home.gv_genfav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:verticalSpacing="0.5dp"
+            android:numColumns="1"
+            android:stretchMode="columnWidth"
+            android:layout_marginBottom="8dp">
+        </com.example.user.pmdproject.CustomGridView>
     </LinearLayout>
 
 </ScrollView>

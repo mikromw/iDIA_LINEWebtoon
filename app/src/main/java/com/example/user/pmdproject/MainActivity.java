@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
@@ -27,8 +28,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Comparator;
 import java.util.GregorianCalendar;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.regex.Matcher;
 
 import static android.R.attr.bitmap;
@@ -39,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
     //array warna icon dan text ketika tab navigasi di-klik (secara berurutan dari Home, Daily, Challenge, Favorites dan More)
     public static String[] colorNavs = new String[] {"#00D22C", "#ED5F5E", "#F5A622", "#2B96DA", "#00D22C"};
     public static ArrayList<Comix> comics;
+    public static UnSwipeableViewPager viewPager;
+    private static Handler handler;
+    private static Timer timer;
+    private static TimerTask timerTask;
+    private static Runnable Update;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,11 +65,28 @@ public class MainActivity extends AppCompatActivity {
         bnve.setTextSize(10);
 
         //Pembuatan ViewPager dengan PageAdapter
-        final UnSwipeableViewPager viewPager = (UnSwipeableViewPager) findViewById(R.id.mainvp);
+        viewPager = (UnSwipeableViewPager) findViewById(R.id.mainvp);
         final Nav_PA pagerAdapter = new Nav_PA(getSupportFragmentManager(), bnve.getItemCount());
 
         //set PageAdaper pada ViewPager
         viewPager.setAdapter(pagerAdapter);
+        viewPager.setOffscreenPageLimit(4);
+
+        startTimer();
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
+            @Override
+            public void onPageSelected(int position) {
+                if(position > 0)
+                    stopTimer();
+                else
+                    startTimer();
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) { }
+        });
 
         //Hubungkan BottomNavigationViewEx dengan ViewPager
         bnve.setupWithViewPager(viewPager);
@@ -125,6 +151,30 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public static void startTimer(){
+        handler = new Handler();
+        Update = new Runnable() {
+            public void run() {
+                Home_Fragment.current_page++;
+                Home_Fragment.vp.setCurrentItem(Home_Fragment.current_page, true);
+            }
+        };
+
+        timer = new Timer(); // This will create a new Thread
+        timerTask = new TimerTask() { // task to be scheduled
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        };
+        timer.schedule(timerTask, 3000, 3000);
+    }
+
+    public static void stopTimer(){
+        handler.removeCallbacks(Update);
+        timerTask.cancel();
+    }
+
     public static Bitmap getBitmapFromAssets(Context context, String fileName) {
         AssetManager asm = context.getAssets();
         InputStream istr;
@@ -176,5 +226,19 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return d;
+    }
+
+    public void toFavorite(View v){
+        MainActivity.viewPager.setCurrentItem(3, false);
+        Fav_Fragment.favvp.setCurrentItem(0, false);
+    }
+
+    public void toDaily(View v){
+        MainActivity.viewPager.setCurrentItem(1, false);
+        Calendar c = Calendar.getInstance();
+        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+        if(dayOfWeek == 1)
+            dayOfWeek = 8;
+        Daily_Fragment.dailyvp.setCurrentItem(dayOfWeek - 2, false);
     }
 }
