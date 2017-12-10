@@ -27,7 +27,7 @@ public class Home_Fragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    public static int current_page = 0;
+    public static int current_page = 5000;
     public static ViewPager vp;
     public static HomeCarouselAdapter hcAdapter;
 
@@ -78,7 +78,7 @@ public class Home_Fragment extends Fragment {
         vp = (ViewPager) rootView.findViewById(R.id.home_carousel);
         hcAdapter = new HomeCarouselAdapter(getChildFragmentManager(), getContext(), container);
         vp.setAdapter(hcAdapter);
-
+        vp.setCurrentItem(5000);
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }

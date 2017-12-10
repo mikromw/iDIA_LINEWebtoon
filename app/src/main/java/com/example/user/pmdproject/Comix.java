@@ -14,24 +14,26 @@ import java.util.List;
 public class Comix implements Parcelable {
 
     public enum Genre implements Parcelable{
-        DRAMA("Drama", 0xFF00B19A),
-        FANTASY("Fantasy", 0xFF8B00E9),
-        COMEDY("Comedy", 0xFFEEA800),
-        SLICE_OF_LIFE("Slice Of Life", 0xFF9AB710),
-        ROMANCE("Romance", 0xFFFD337F),
-        THRILLER("Thriller", 0xFFC00355),
-        HORROR("Horror", 0xFFBE0000),
-        ACTION("Action", 0xFF006AFA),
-        SUPERHERO("Superhero", 0xFF4A20E2),
-        HEARTWARMING("Heartwarming", 0xFFFD6900),
-        SPORTS("Sports", 0xFF1BA8F2),
-        SCI_FI("Sci-Fi", 0xFF2D4464);
+        FANTASY("Fantasy", "Immerse, Imagine, and Inspire.", 0xFF8B00E9),
+        COMEDY("Comedy", "Good Laughter is all we need.", 0xFFEEA800),
+        DRAMA("Drama", "", 0xFF00B19A),
+        SLICE_OF_LIFE("Slice Of Life", "", 0xFF9AB710),
+        ROMANCE("Romance", "", 0xFFFD337F),
+        THRILLER("Thriller", "", 0xFFC00355),
+        HORROR("Horror", "", 0xFFBE0000),
+        ACTION("Action", "", 0xFF006AFA),
+        SUPERHERO("Superhero", "", 0xFF4A20E2),
+        HEARTWARMING("Heartwarming", "", 0xFFFD6900),
+        SPORTS("Sports", "", 0xFF1BA8F2),
+        SCI_FI("Sci-Fi", "", 0xFF2D4464);
 
         private final String genre_name;
+        private final String genre_description;
         private final int genre_colorid;
 
-        private Genre(String genre_name, int genre_colorid) {
+        private Genre(String genre_name, String genre_description, int genre_colorid) {
             this.genre_name = genre_name;
+            this.genre_description = genre_description;
             this.genre_colorid = genre_colorid;
         }
 
@@ -59,6 +61,10 @@ public class Comix implements Parcelable {
 
         public String getName() {
             return genre_name;
+        }
+
+        public String getDescription() {
+            return genre_description;
         }
 
         public int getColor() {
