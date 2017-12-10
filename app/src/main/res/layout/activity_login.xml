@@ -128,8 +128,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/login.skip"
@@ -140,15 +140,16 @@
             android:paddingBottom="8dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="8dp">
+            android:paddingTop="8dp"
+            android:background="@drawable/ripple_white">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="Skip"
                 android:textAllCaps="false"
                 android:textColor="@color/gray"
-                android:layout_gravity="center"
                 android:textSize="16dp"
                 android:textStyle="bold"></TextView>
 
@@ -156,7 +157,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_chevron_right_black_24dp"
-                android:tint="@color/gray"/>
+                android:tint="@color/gray" />
         </LinearLayout>
 
         <LinearLayout
@@ -172,17 +173,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Terms"
-                android:textSize="12dp"
-                android:textColor="@color/gray" />
+                android:textColor="@color/gray"
+                android:textSize="12dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="\u00A9 NAVER WEBTOON CORP"
-                android:textSize="12dp"
                 android:textAlignment="center"
-                android:textColor="@color/gray" />
+                android:textColor="@color/gray"
+                android:textSize="12dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -190,9 +191,9 @@
                 android:layout_gravity="end"
                 android:layout_weight="1"
                 android:text="Privacy"
-                android:textSize="12dp"
                 android:textAlignment="textEnd"
-                android:textColor="@color/gray" />
+                android:textColor="@color/gray"
+                android:textSize="12dp" />
         </LinearLayout>
     </LinearLayout>
 

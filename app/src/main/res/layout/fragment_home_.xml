@@ -10,7 +10,7 @@
         android:orientation="vertical">
         <android.support.v4.view.ViewPager
             android:layout_width="match_parent"
-            android:layout_height="224dp"
+            android:layout_height="200dp"
             android:id="@+id/home_carousel">
         </android.support.v4.view.ViewPager>
         <RelativeLayout
@@ -74,7 +74,6 @@
                 android:paddingTop="4dp"
                 android:paddingRight="8dp"/>
         </RelativeLayout>
-
         <com.example.user.pmdproject.CustomGridView
             android:id="@+id/home.gv_new"
             android:layout_width="match_parent"
@@ -89,26 +88,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:onClick="toDaily">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Webtoon Hari Ini"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:paddingTop="8dp"
+                android:paddingBottom="4dp"
                 android:paddingLeft="8dp"
-                android:paddingBottom="4dp"/>
+                android:paddingTop="8dp"
+                android:text="Webtoon Hari Ini"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_chevron_right_black_24dp"
                 android:layout_alignParentRight="true"
+                android:paddingRight="8dp"
                 android:paddingTop="4dp"
-                android:paddingRight="8dp"/>
+                android:src="@drawable/ic_chevron_right_black_24dp" />
         </RelativeLayout>
 
         <com.example.user.pmdproject.CustomGridView
@@ -116,11 +117,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:verticalSpacing="0.5dp"
+            android:horizontalSpacing="0.5dp"
             android:numColumns="3"
             android:stretchMode="columnWidth"
             android:layout_marginBottom="8dp">
         </com.example.user.pmdproject.CustomGridView>
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login untuk yang lebih seru"
+                android:textSize="14dp"
+                android:textColor="@color/green"
+                android:paddingTop="14dp"
+                android:paddingLeft="12dp"
+                android:paddingBottom="14dp"/>
+            <Button
+                android:layout_width="56dp"
+                android:layout_height="22dp"
+                android:text="Masuk"
+                android:textSize="12dp"
+                android:textColor="@color/green"
+                android:textAllCaps="false"
+                android:layout_margin="12dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/round_edge_button_green"
+                />
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -148,6 +177,81 @@
             android:stretchMode="columnWidth"
             android:layout_marginBottom="8dp">
         </com.example.user.pmdproject.CustomGridView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Populer"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:paddingTop="8dp"
+                android:paddingLeft="8dp"
+                android:paddingBottom="4dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_chevron_right_black_24dp"
+                android:layout_alignParentRight="true"
+                android:paddingTop="4dp"
+                android:paddingRight="8dp"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mulai terbitkan komik karyamu sendiri!"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:paddingTop="8dp"
+                android:paddingLeft="8dp"
+                android:paddingBottom="4dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_chevron_right_black_24dp"
+                android:layout_alignParentRight="true"
+                android:paddingTop="4dp"
+                android:paddingRight="8dp"/>
+        </RelativeLayout>
+        <android.support.v7.widget.ButtonBarLayout
+            android:id="@+id/share"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginRight="64dp"
+            android:background="@drawable/round_edge_button"
+            android:backgroundTint="@color/darkGray">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:tint="@color/white"
+                android:src="@drawable/ic_share_black_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="8dp"
+                android:text="Bagikan apps LINE Webtoon"
+                android:textColor="@color/white"
+                android:textSize="12dp" />
+        </android.support.v7.widget.ButtonBarLayout>
     </LinearLayout>
 
 </ScrollView>
