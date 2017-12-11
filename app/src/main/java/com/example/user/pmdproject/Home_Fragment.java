@@ -2,6 +2,7 @@ package com.example.user.pmdproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,7 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
+
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
+
+import java.util.ArrayList;
 
 
 /**
@@ -27,10 +34,6 @@ public class Home_Fragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    public static int current_page = 5000;
-    public static ViewPager vp;
-    public static HomeCarouselAdapter hcAdapter;
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -75,22 +78,25 @@ public class Home_Fragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home_, container, false);
 
         // Carousel
-        vp = (ViewPager) rootView.findViewById(R.id.home_carousel);
-        hcAdapter = new HomeCarouselAdapter(getChildFragmentManager(), getContext(), container);
-        vp.setAdapter(hcAdapter);
-        vp.setCurrentItem(5000);
-        vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        CarouselView carouselView = rootView.findViewById(R.id.carouselView);
+        ArrayList<Comix> comics = MainActivity.comics;
+        final Drawable[] sampleImages = {
+                MainActivity.getDrawableFromAssets(getContext(), comics.get(0).thumbnail),
+                MainActivity.getDrawableFromAssets(getContext(), comics.get(1).thumbnail),
+                MainActivity.getDrawableFromAssets(getContext(), comics.get(2).thumbnail),
+                MainActivity.getDrawableFromAssets(getContext(), comics.get(3).thumbnail),
+                MainActivity.getDrawableFromAssets(getContext(), comics.get(4).thumbnail)
+        };
+
+        ImageListener imageListener = new ImageListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
-            @Override
-            public void onPageSelected(int position) {
-                current_page = position;
-                MainActivity.stopTimer();
-                MainActivity.startTimer();
+            public void setImageForPosition(int position, ImageView imageView) {
+                imageView.setImageDrawable(sampleImages[position]);
             }
-            @Override
-            public void onPageScrollStateChanged(int state) { }
-        });
+        };
+
+        carouselView.setPageCount(sampleImages.length);
+        carouselView.setImageListener(imageListener);
 
         // Favoritku
         GridView gv = (GridView) rootView.findViewById(R.id.home_gv_fav);
