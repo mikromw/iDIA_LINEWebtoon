@@ -11,7 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 
 /**
@@ -107,18 +115,20 @@ public class Home_Fragment extends Fragment {
         });
 
         // Baru dirilis
-        CustomGridView gv_new = (CustomGridView) rootView.findViewById(R.id.home_gv_new);
-        gv_new.setAdapter(new home_newGVAdapter(context, MainActivity.comics));
+        LinearLayout ll_new= (LinearLayout) rootView.findViewById(R.id.home_ll_new);
+        //new2_img.setImageBitmap(MainActivity.getBitmapsFromSubFolder(context, "home/new/new2.png"));
+        Picasso mPicasso = Picasso.with(context);
+        for(int i=1; i <= 2; i++) {
+            ImageView img = new ImageView(context);
+            img.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            img.setScaleType(ImageView.ScaleType.FIT_XY);
+            img.setAdjustViewBounds(true);
+            mPicasso.load("file:///android_asset/home/new/new" + i+".png")
+                    .networkPolicy(NetworkPolicy.OFFLINE)
+                    .into(img);
+            ll_new.addView(img);
+        }
 
-        gv_new.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Comix selectedComic = MainActivity.comics.get(position);
-                Intent detailIntent = new Intent(context, ComicDetailActivity.class);
-                detailIntent.putExtra("comic", selectedComic);
-                startActivity(detailIntent);
-            }
-        });
 
         // Webtoon hari ini
         CustomGridView gv_today = (CustomGridView) rootView.findViewById(R.id.home_gv_today);
