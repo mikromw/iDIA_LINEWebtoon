@@ -44,11 +44,6 @@ public class MainActivity extends AppCompatActivity {
     public static String[] colorNavs = new String[] {"#00D22C", "#ED5F5E", "#F5A622", "#2B96DA", "#00D22C"};
     public static ArrayList<Comix> comics;
     public static UnSwipeableViewPager viewPager;
-    private static Handler handler;
-    private static Timer timer;
-    private static TimerTask timerTask;
-    private static Runnable Update;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,22 +66,6 @@ public class MainActivity extends AppCompatActivity {
         //set PageAdaper pada ViewPager
         viewPager.setAdapter(pagerAdapter);
         viewPager.setOffscreenPageLimit(4);
-
-        startTimer();
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
-            @Override
-            public void onPageSelected(int position) {
-                if(position > 0)
-                    stopTimer();
-                else
-                    startTimer();
-            }
-            @Override
-            public void onPageScrollStateChanged(int state) { }
-        });
 
         //Hubungkan BottomNavigationViewEx dengan ViewPager
         bnve.setupWithViewPager(viewPager);
@@ -151,30 +130,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public static void startTimer(){
-        handler = new Handler();
-        Update = new Runnable() {
-            public void run() {
-                Home_Fragment.current_page++;
-                Home_Fragment.vp.setCurrentItem(Home_Fragment.current_page, true);
-            }
-        };
-
-        timer = new Timer(); // This will create a new Thread
-        timerTask = new TimerTask() { // task to be scheduled
-            @Override
-            public void run() {
-                handler.post(Update);
-            }
-        };
-        timer.schedule(timerTask, 3000, 3000);
-    }
-
-    public static void stopTimer(){
-        handler.removeCallbacks(Update);
-        timerTask.cancel();
-    }
-
     public static Bitmap getBitmapFromAssets(Context context, String fileName) {
         AssetManager asm = context.getAssets();
         InputStream istr;
@@ -227,7 +182,32 @@ public class MainActivity extends AppCompatActivity {
         }
         return d;
     }
-
+    public static Bitmap getBitmapPublicFromAssets(Context context, String fileName) {
+        AssetManager asm = context.getAssets();
+        InputStream istr;
+        Bitmap bitmap = null;
+        try {
+            istr = asm.open(fileName);
+            bitmap = BitmapFactory.decodeStream(istr);
+            istr.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+    }
+    public static Drawable getDrawablePublicFromAssets(Context context, String fileName) {
+        AssetManager asm = context.getAssets();
+        InputStream istr;
+        Drawable d = null;
+        try {
+            istr = asm.open(fileName);
+            d = Drawable.createFromStream(istr, null);
+            istr.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return d;
+    }
     public void toFavorite(View v){
         MainActivity.viewPager.setCurrentItem(3, false);
         Fav_Fragment.favvp.setCurrentItem(0, false);
