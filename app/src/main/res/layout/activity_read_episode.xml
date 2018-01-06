@@ -7,15 +7,8 @@
     android:orientation="vertical"
     tools:context="com.example.user.pmdproject.ReadEpisodeActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:id="@+id/eps_preview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-        </LinearLayout>
-    </ScrollView>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/pages_rv"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
 </LinearLayout>

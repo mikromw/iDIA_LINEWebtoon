@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     //array warna icon dan text ketika tab navigasi di-klik (secara berurutan dari Home, Daily, Challenge, Favorites dan More)
     public static String[] colorNavs = new String[] {"#00D22C", "#ED5F5E", "#F5A622", "#2B96DA", "#00D22C"};
     public static ArrayList<Comix> comics;
+    public static ArrayList<Comix> favorites;
     public static UnSwipeableViewPager viewPager;
     private static Handler handler;
     private static Timer timer;
@@ -91,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         //Hubungkan BottomNavigationViewEx dengan ViewPager
         bnve.setupWithViewPager(viewPager);
 
+        favorites = new ArrayList<Comix>();
         comics = new ArrayList<Comix>();
         comics.add(new Comix("Blessed", "M. Victoria Robado", "Joanna is a mid-twenties office girl who likes social media and watered down office. While griping about her love life, she accidentally swiped right on a whole Pantheon of Gods and Goddesses! Looking to fulfill an ancient prophecy, only one of them will be able to claim Joanna as their own... after a nice dinner, that is!", "cover/Blessed.jpg", Comix.Genre.DRAMA, 776271));
         comics.get(0).chapters.add(new Chapters(this, "Dear Joanna #1!", new GregorianCalendar(2017, 10, 24), "content/Drama/Blessed/Sampul Chapter/10.png", "comic/content/Drama/Blessed/10"));
@@ -105,17 +107,6 @@ public class MainActivity extends AppCompatActivity {
         comics.add(new Comix("Melvina's Therapy", "A.Rasen", "Anxiety, loneliness, depression... with a regular therapy you can deal with these issues, but Melvina's Therapy is about something deeper: creepy secrets remaining in the darkest space of your mind, waiting for you...", "cover/Melvina's Therapy.jpg", Comix.Genre.HORROR, 776271));
         comics.get(5).chapters.add(new Chapters(this, "Ep. 10 - Chairs (4)", new GregorianCalendar(2017, 5, 22), "content/Horror/Melvina's Therapy/Sampul Chapter/10.png", "comic/content/Horror/Melvina's Therapy/ep10"));
 
-
-//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
-//        comics.add(new Comix("CHANGE", "JINONE", "Kenapa aku berubah jadi cewek?!", R.drawable.thumb_m, Comix.Genre.DRAMA, 776271));
 
         //set warna icon dan teks untuk semua tab di Bottom Navigation dalam kondisi tertentu
         for(int i=0; i < bnve.getItemCount(); i++) {

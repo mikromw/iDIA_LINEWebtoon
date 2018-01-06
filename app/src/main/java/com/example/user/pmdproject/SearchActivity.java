@@ -1,5 +1,7 @@
 package com.example.user.pmdproject;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +9,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -26,13 +31,12 @@ public class SearchActivity extends AppCompatActivity {
         searchList = new ArrayList<Comix>();
 
         final EditText searchTxt = (EditText)findViewById(R.id.searchTxt);
-        searchTxt.requestFocus();
-
+        final Button cancelBtn = (Button)findViewById(R.id.cancelBtn);
         final FavComicAdapter adapter = new FavComicAdapter(this, searchList);
         final ListView searchResults = (ListView)findViewById(R.id.searchResults);
+
+        searchTxt.requestFocus();
         searchResults.setAdapter(adapter);
-
-
         searchTxt.addTextChangedListener(new TextWatcher() {
 
             @Override
@@ -62,6 +66,27 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+        searchResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Comix selectedComic = searchList.get(i);
+
+                Intent detailIntent = new Intent(SearchActivity.this, ComicDetailActivity.class);
+
+                detailIntent.putExtra("comic", selectedComic);
+
+                startActivity(detailIntent);
+            }
+        });
     }
     public void initList() {
 

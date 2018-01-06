@@ -52,6 +52,11 @@ public class ComicDetailActivity extends AppCompatActivity {
                 // 1
                 Chapters selectedComic = sample.chapters.get(position);
 
+                if(!sample.isVisited) {
+                    MainActivity.favorites.add(sample);
+                    sample.isVisited = !sample.isVisited;
+                }
+
                 // 2
                 Intent readIntent = new Intent(ComicDetailActivity.this, ReadEpisodeActivity.class);
 

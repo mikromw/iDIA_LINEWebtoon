@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Comix implements Parcelable {
 
-    public enum Genre implements Parcelable{
+    public enum Genre implements Parcelable {
         DRAMA("Drama", 0xFF00B19A),
         FANTASY("Fantasy", 0xFF8B00E9),
         COMEDY("Comedy", 0xFFEEA800),
