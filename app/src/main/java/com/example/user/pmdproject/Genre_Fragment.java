@@ -1,32 +1,32 @@
 package com.example.user.pmdproject;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import static android.R.attr.button;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link More_Fragment.OnFragmentInteractionListener} interface
+ * {@link Genre_Fragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link More_Fragment#newInstance} factory method to
+ * Use the {@link Genre_Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class More_Fragment extends Fragment {
+public class Genre_Fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    public ViewPager genrevp;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -34,7 +34,7 @@ public class More_Fragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public More_Fragment() {
+    public Genre_Fragment() {
         // Required empty public constructor
     }
 
@@ -44,11 +44,11 @@ public class More_Fragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment More_Fragment.
+     * @return A new instance of fragment Genre_Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static More_Fragment newInstance(String param1, String param2) {
-        More_Fragment fragment = new More_Fragment();
+    public static Genre_Fragment newInstance(String param1, String param2) {
+        Genre_Fragment fragment = new Genre_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -69,28 +69,18 @@ public class More_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View ret = inflater.inflate(R.layout.fragment_more_, container, false);
+        View ret = inflater.inflate(R.layout.fragment_genre_, container, false);
 
-        Button btnSearch = (Button)ret.findViewById(R.id.searchBtn);
-        Button btnGenre = (Button)ret.findViewById(R.id.filterGenre);
-        btnSearch.setOnClickListener(new View.OnClickListener() {
+        // Get view pager
+        genrevp = (ViewPager)ret.findViewById(R.id.genrevp);
+        // Get top tab layout navigation
+        TabLayout genretabs = (TabLayout)ret.findViewById(R.id.genretabs);
+        // set adapter for the view pager
+        genrevp.setAdapter(new GenrePA(getChildFragmentManager()));
+        // sync the tab with the view pager
+        genretabs.setupWithViewPager(genrevp);
+        // done and return the view
 
-            @Override
-            public void onClick(View view) {
-                Intent searchIntent = new Intent(getActivity().getApplicationContext(), SearchActivity.class);
-
-                startActivity(searchIntent);
-            }
-        });
-        btnGenre.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent genreIntent = new Intent(getActivity().getApplicationContext(), GenreActivity.class);
-
-                startActivity(genreIntent);
-            }
-        });
         return ret;
     }
 

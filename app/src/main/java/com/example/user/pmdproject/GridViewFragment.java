@@ -5,36 +5,37 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.GridView;
 
-import static android.R.attr.button;
+import java.util.ArrayList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link More_Fragment.OnFragmentInteractionListener} interface
+ * {@link GridViewFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link More_Fragment#newInstance} factory method to
+ * Use the {@link GridViewFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class More_Fragment extends Fragment {
+
+public class GridViewFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private ArrayList<Comix> collection;
+
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
-    public More_Fragment() {
+    public GridViewFragment() {
         // Required empty public constructor
     }
 
@@ -42,16 +43,35 @@ public class More_Fragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment More_Fragment.
+     * @return A new instance of fragment GridViewFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static More_Fragment newInstance(String param1, String param2) {
-        More_Fragment fragment = new More_Fragment();
+    public static GridViewFragment newInstance(int position) {
+        GridViewFragment fragment = new GridViewFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        switch(position) {
+            case 0:
+                args.putParcelableArrayList("data", MainActivity.romance);
+                break;
+            case 1:
+                args.putParcelableArrayList("data", MainActivity.drama);
+                break;
+            case 2:
+                args.putParcelableArrayList("data", MainActivity.fantasy);
+                break;
+            case 3:
+                args.putParcelableArrayList("data", MainActivity.comedy);
+                break;
+            case 4:
+                args.putParcelableArrayList("data", MainActivity.thriller);
+                break;
+            case 5:
+                args.putParcelableArrayList("data", MainActivity.horror);
+                break;
+            case 6:
+                args.putParcelableArrayList("data", MainActivity.sol);
+                break;
+        }
         fragment.setArguments(args);
         return fragment;
     }
@@ -60,38 +80,40 @@ public class More_Fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            collection = getArguments().getParcelableArrayList("data");
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View ret = inflater.inflate(R.layout.fragment_more_, container, false);
+        final Context context = getActivity().getApplicationContext();
+        View rootView = inflater.inflate(R.layout.fragment_grid_view, container, false);
 
-        Button btnSearch = (Button)ret.findViewById(R.id.searchBtn);
-        Button btnGenre = (Button)ret.findViewById(R.id.filterGenre);
-        btnSearch.setOnClickListener(new View.OnClickListener() {
+        GridView gv = (GridView)rootView.findViewById(R.id.test_grid);
+        gv.setAdapter(new ComicAdapter(context, collection));
 
-            @Override
-            public void onClick(View view) {
-                Intent searchIntent = new Intent(getActivity().getApplicationContext(), SearchActivity.class);
 
-                startActivity(searchIntent);
-            }
-        });
-        btnGenre.setOnClickListener(new View.OnClickListener() {
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onClick(View view) {
-                Intent genreIntent = new Intent(getActivity().getApplicationContext(), GenreActivity.class);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // 1
+                Comix selectedComic = collection.get(position);
 
-                startActivity(genreIntent);
+                // 2
+                Intent detailIntent = new Intent(context, ComicDetailActivity.class);
+
+                // 3
+//                detailIntent.putParcelableArrayListExtra("chapters", selectedComic.chapters);
+                detailIntent.putExtra("comic", selectedComic);
+
+                // 4
+                startActivity(detailIntent);
             }
+
         });
-        return ret;
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
