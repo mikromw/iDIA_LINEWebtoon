@@ -12,4 +12,6 @@
     <color name="grey">#EEEEEE</color>
     <color name="green">#00D22C</color>
     <color name="grid_bg">#E0E0E0</color>
+    <color name="transparent">#22000000</color>
+    <color name="transparent_0">#00000000</color>
 </resources>
