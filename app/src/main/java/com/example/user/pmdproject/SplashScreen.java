@@ -6,11 +6,23 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.squareup.picasso.LruCache;
+import com.squareup.picasso.Picasso;
+
 public class SplashScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        Picasso.Builder picassoBuilder = new Picasso.Builder(this);
+
+        Picasso picasso = picassoBuilder
+                .build();
+        try {
+            Picasso.setSingletonInstance(picasso);
+        } catch (IllegalStateException ignored) {
+            ignored.printStackTrace();
+        }
         startHeavyProcessing();
 
     }
