@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import static android.R.attr.button;
 
@@ -71,8 +72,8 @@ public class More_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View ret = inflater.inflate(R.layout.fragment_more_, container, false);
 
-        Button btnSearch = (Button)ret.findViewById(R.id.searchBtn);
-        Button btnGenre = (Button)ret.findViewById(R.id.filterGenre);
+        ImageButton btnSearch = (ImageButton)ret.findViewById(R.id.searchBtn);
+        ImageButton btnGenre = (ImageButton)ret.findViewById(R.id.filterGenre);
         btnSearch.setOnClickListener(new View.OnClickListener() {
 
             @Override
