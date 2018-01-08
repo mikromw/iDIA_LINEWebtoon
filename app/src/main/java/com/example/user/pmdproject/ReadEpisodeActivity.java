@@ -1,4 +1,4 @@
-package com.example.user.pmdproject.activities;
+package com.example.user.pmdproject;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

@@ -1,4 +1,4 @@
-package com.example.user.pmdproject.activities;
+package com.example.user.pmdproject;
 
 import android.content.Intent;
 import android.os.Bundle;

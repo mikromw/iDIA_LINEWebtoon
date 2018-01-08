@@ -5,7 +5,7 @@
     android:backgroundTint="@color/white"
     android:padding="6dip" >
 
-    <com.example.user.pmdproject.ListImageView
+    <com.example.user.pmdproject.classes.ListImageView
         android:id="@+id/chapter_icon"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

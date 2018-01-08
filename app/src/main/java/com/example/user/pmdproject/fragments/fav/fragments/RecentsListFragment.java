@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.user.pmdproject.MainActivity;
 import com.example.user.pmdproject.R;
-import com.example.user.pmdproject.activities.MainActivity;
-import com.example.user.pmdproject.activities.ReadEpisodeActivity;
+import com.example.user.pmdproject.ReadEpisodeActivity;
 import com.example.user.pmdproject.fragments.fav.adapters.FavComicAdapter;
 import com.example.user.pmdproject.models.Chapters;
 

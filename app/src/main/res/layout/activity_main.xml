@@ -7,14 +7,14 @@
     tools:context="com.example.user.pmdproject.MainActivity">
 
     <!-- ViewPager yang di-custom dengan nama kelas UnSwipeableViewPager, dimana ViewPager tidak bisa digeser -->
-    <com.example.user.pmdproject.UnSwipeableViewPager
+    <com.example.user.pmdproject.classes.UnSwipeableViewPager
         android:id="@+id/mainvp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_above="@+id/bnve">
 
-    </com.example.user.pmdproject.UnSwipeableViewPager>
+    </com.example.user.pmdproject.classes.UnSwipeableViewPager>
 
     <!-- BottomNavigationViewEx: BottomNavigationView yang di-custom -->
     <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx

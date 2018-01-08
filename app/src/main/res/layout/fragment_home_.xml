@@ -145,7 +145,7 @@
             android:layout_width="fill_parent"
             android:layout_height="0.5dp"
             android:background="@color/grey"/>
-        <com.example.user.pmdproject.CustomGridView
+        <com.example.user.pmdproject.classes.CustomGridView
             android:id="@+id/home.gv_today"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
             android:numColumns="3"
             android:stretchMode="columnWidth"
             android:layout_marginBottom="8dp">
-        </com.example.user.pmdproject.CustomGridView>
+        </com.example.user.pmdproject.classes.CustomGridView>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -204,14 +204,14 @@
             android:layout_width="fill_parent"
             android:layout_height="0.5dp"
             android:background="@color/grey"/>
-        <com.example.user.pmdproject.CustomGridView
+        <com.example.user.pmdproject.classes.CustomGridView
             android:id="@+id/home.gv_genfav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:numColumns="1"
             android:stretchMode="columnWidth"
             android:layout_marginBottom="8dp">
-        </com.example.user.pmdproject.CustomGridView>
+        </com.example.user.pmdproject.classes.CustomGridView>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -240,7 +240,7 @@
             android:layout_width="fill_parent"
             android:layout_height="0.5dp"
             android:background="@color/grey"/>
-        <com.example.user.pmdproject.CustomListView_nonScrollable
+        <com.example.user.pmdproject.classes.CustomListView_nonScrollable
             android:id="@+id/home.lv_pop"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -248,7 +248,7 @@
             android:divider="@color/grey"
             android:dividerHeight="0.5dp">
 
-        </com.example.user.pmdproject.CustomListView_nonScrollable>
+        </com.example.user.pmdproject.classes.CustomListView_nonScrollable>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

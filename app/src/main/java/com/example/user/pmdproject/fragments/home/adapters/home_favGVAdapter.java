@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.pmdproject.MainActivity;
 import com.example.user.pmdproject.R;
-import com.example.user.pmdproject.activities.MainActivity;
 import com.example.user.pmdproject.models.Comix;
 
 import java.util.ArrayList;

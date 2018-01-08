@@ -1,12 +1,10 @@
-package com.example.user.pmdproject.activities;
+package com.example.user.pmdproject;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
-
-import com.example.user.pmdproject.R;
 
 public class LoginActivity extends AppCompatActivity {
     private LinearLayout txtSkip;

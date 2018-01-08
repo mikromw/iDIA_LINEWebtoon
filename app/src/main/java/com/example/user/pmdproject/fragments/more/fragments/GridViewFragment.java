@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.example.user.pmdproject.ComicDetailActivity;
+import com.example.user.pmdproject.MainActivity;
 import com.example.user.pmdproject.R;
-import com.example.user.pmdproject.activities.ComicDetailActivity;
-import com.example.user.pmdproject.activities.MainActivity;
 import com.example.user.pmdproject.adapters.ComicAdapter;
 import com.example.user.pmdproject.models.Comix;
 

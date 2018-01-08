@@ -1,21 +1,17 @@
 package com.example.user.pmdproject.fragments.more.fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.user.pmdproject.GenreActivity;
 import com.example.user.pmdproject.R;
-import com.example.user.pmdproject.activities.GenreActivity;
-import com.example.user.pmdproject.activities.SearchActivity;
-
-import static android.R.attr.button;
+import com.example.user.pmdproject.SearchActivity;
 
 
 /**

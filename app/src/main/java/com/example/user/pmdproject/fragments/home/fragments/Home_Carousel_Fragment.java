@@ -1,7 +1,6 @@
 package com.example.user.pmdproject.fragments.home.fragments;
 
 
-import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,11 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.user.pmdproject.MainActivity;
 import com.example.user.pmdproject.R;
-import com.example.user.pmdproject.activities.MainActivity;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 
 /**

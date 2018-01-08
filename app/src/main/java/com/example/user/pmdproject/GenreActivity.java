@@ -1,11 +1,10 @@
-package com.example.user.pmdproject.activities;
+package com.example.user.pmdproject;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.user.pmdproject.R;
 import com.example.user.pmdproject.fragments.more.adapters.GenrePA;
 
 public class GenreActivity extends AppCompatActivity {

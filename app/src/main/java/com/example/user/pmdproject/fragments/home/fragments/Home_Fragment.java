@@ -18,10 +18,10 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.example.user.pmdproject.ComicDetailActivity;
+import com.example.user.pmdproject.MainActivity;
 import com.example.user.pmdproject.R;
-import com.example.user.pmdproject.activities.ComicDetailActivity;
-import com.example.user.pmdproject.activities.MainActivity;
-import com.example.user.pmdproject.activities.SearchActivity;
+import com.example.user.pmdproject.SearchActivity;
 import com.example.user.pmdproject.classes.CustomGridView;
 import com.example.user.pmdproject.fragments.home.adapters.home_challengeGVAdapter;
 import com.example.user.pmdproject.fragments.home.adapters.home_favGVAdapter;

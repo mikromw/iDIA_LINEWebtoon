@@ -4,7 +4,7 @@
     android:layout_height="80dp"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <com.example.user.pmdproject.ListImageView
+    <com.example.user.pmdproject.classes.ListImageView
         android:id="@+id/comic_icon"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

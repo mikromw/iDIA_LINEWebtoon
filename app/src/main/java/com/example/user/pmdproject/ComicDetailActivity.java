@@ -1,4 +1,4 @@
-package com.example.user.pmdproject.activities;
+package com.example.user.pmdproject;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.user.pmdproject.R;
 import com.example.user.pmdproject.adapters.ChaptersAdapter;
 import com.example.user.pmdproject.models.Chapters;
 import com.example.user.pmdproject.models.Comix;
