@@ -16,10 +16,8 @@ import java.util.List;
 public class GenrePA extends FragmentStatePagerAdapter {
 
     private String[] pageTitles = new String[] {"ROMANTIS", "DRAMA", "FANTASI", "KOMEDI", "THRILLER", "HOROR", "SLICE OF LIFE"};
-    public Fragment[] fragments;
     public GenrePA(FragmentManager fm) {
         super(fm);
-        fragments = new Fragment[pageTitles.length];
     }
 
     @Override

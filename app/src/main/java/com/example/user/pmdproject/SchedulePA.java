@@ -22,34 +22,7 @@ public class SchedulePA extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        switch(position) {
-            case 0:
-                Monday_Fragment mon = new Monday_Fragment();
-                return mon;
-            case 1:
-                Tuesday_Fragment tue = new Tuesday_Fragment();
-                return tue;
-            case 2:
-                Wednesday_Fragment wed = new Wednesday_Fragment();
-                return wed;
-            case 3:
-                Thursday_Fragment thu = new Thursday_Fragment();
-                return thu;
-            case 4:
-                Friday_Fragment fri = new Friday_Fragment();
-                return fri;
-            case 5:
-                Saturday_Fragment sat = new Saturday_Fragment();
-                return sat;
-            case 6:
-                Sunday_Fragment sun = new Sunday_Fragment();
-                return sun;
-            case 7:
-                Completed_Fragment comp = new Completed_Fragment();
-                return comp;
-            default:
-                return null;
-        }
+        return GridDailyFragment.newInstance();
     }
 
     @Override
