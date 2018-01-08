@@ -25,8 +25,8 @@ public class Wednesday_Fragment extends Fragment {
         final Context context = getActivity().getApplicationContext();
         View rootView = inflater.inflate(R.layout.wednesday, container, false);
 
-        GridView gv = (GridView) rootView.findViewById(R.id.daily_grid);
-        gv.setAdapter(new ComicAdapter(context, MainActivity.comics));
+        CustomGridView gv = (CustomGridView) rootView.findViewById(R.id.daily_grid);
+        gv.setAdapter(new home_todayGVAdapter(context, MainActivity.comics));
 
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

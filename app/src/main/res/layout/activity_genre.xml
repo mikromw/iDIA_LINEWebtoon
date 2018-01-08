@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.Light">
+        <android.support.v7.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:title="Berdasarkan Genre"
+            app:titleTextColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/genre_tb"
+            android:background="@color/white"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        </android.support.v7.widget.Toolbar>
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <android.support.design.widget.TabLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/genretabs"
+            app:tabMode="scrollable"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TabItem
+                android:text="ROMANTIS"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" />
+            <android.support.design.widget.TabItem
+                android:text="DRAMA"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" />
+            <android.support.design.widget.TabItem
+                android:text="FANTASI"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+            <android.support.design.widget.TabItem
+                android:text="KOMEDI"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+            <android.support.design.widget.TabItem
+                android:text="THRILLER"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+            <android.support.design.widget.TabItem
+                android:text="HOROR"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+            <android.support.design.widget.TabItem
+                android:text="SLICE OF LIFE"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+        </android.support.design.widget.TabLayout>
+        </HorizontalScrollView>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/genrevp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

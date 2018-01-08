@@ -6,38 +6,35 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.Toolbar;
 
-import static com.example.user.pmdproject.R.id.dailytabs;
-import static com.example.user.pmdproject.R.id.dailyvp;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Fav_Fragment.OnFragmentInteractionListener} interface
+ * {@link Genre_Fragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Fav_Fragment#newInstance} factory method to
+ * Use the {@link Genre_Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Fav_Fragment extends Fragment {
+public class Genre_Fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    public ViewPager genrevp;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    public static ViewPager favvp;
+
     private OnFragmentInteractionListener mListener;
 
-    public Fav_Fragment() {
+    public Genre_Fragment() {
         // Required empty public constructor
     }
 
@@ -47,11 +44,11 @@ public class Fav_Fragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Fav_Fragment.
+     * @return A new instance of fragment Genre_Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Fav_Fragment newInstance(String param1, String param2) {
-        Fav_Fragment fragment = new Fav_Fragment();
+    public static Genre_Fragment newInstance(String param1, String param2) {
+        Genre_Fragment fragment = new Genre_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,18 +68,17 @@ public class Fav_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
-        View ret = inflater.inflate(R.layout.fragment_fav_, container, false);
+        View ret = inflater.inflate(R.layout.fragment_genre_, container, false);
 
         // Get view pager
-        favvp = (ViewPager)ret.findViewById(R.id.favvp);
+        genrevp = (ViewPager)ret.findViewById(R.id.genrevp);
         // Get top tab layout navigation
-        TabLayout favtabs = (TabLayout)ret.findViewById(R.id.favtabs);
+        TabLayout genretabs = (TabLayout)ret.findViewById(R.id.genretabs);
         // set adapter for the view pager
-        favvp.setAdapter(new FavPA(getChildFragmentManager()));
+        genrevp.setAdapter(new GenrePA(getChildFragmentManager()));
         // sync the tab with the view pager
-        favtabs.setupWithViewPager(favvp);
+        genretabs.setupWithViewPager(genrevp);
         // done and return the view
 
         return ret;

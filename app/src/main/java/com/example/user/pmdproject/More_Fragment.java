@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,6 +72,7 @@ public class More_Fragment extends Fragment {
         View ret = inflater.inflate(R.layout.fragment_more_, container, false);
 
         Button btnSearch = (Button)ret.findViewById(R.id.searchBtn);
+        Button btnGenre = (Button)ret.findViewById(R.id.filterGenre);
         btnSearch.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -78,6 +80,15 @@ public class More_Fragment extends Fragment {
                 Intent searchIntent = new Intent(getActivity().getApplicationContext(), SearchActivity.class);
 
                 startActivity(searchIntent);
+            }
+        });
+        btnGenre.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent genreIntent = new Intent(getActivity().getApplicationContext(), GenreActivity.class);
+
+                startActivity(genreIntent);
             }
         });
         return ret;

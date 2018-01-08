@@ -1,27 +1,15 @@
 package com.example.user.pmdproject;
 
-import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.Layout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -29,27 +17,25 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Daily_Fragment.OnFragmentInteractionListener} interface
+ * {@link GridViewFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Daily_Fragment#newInstance} factory method to
+ * Use the {@link GridViewFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Daily_Fragment extends Fragment {
+
+public class GridViewFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    public static ViewPager dailyvp;
+
+    private ArrayList<Comix> collection;
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public ArrayList<Comix> comics;
 
     private OnFragmentInteractionListener mListener;
 
-    public Daily_Fragment() {
+    public GridViewFragment() {
         // Required empty public constructor
     }
 
@@ -57,16 +43,35 @@ public class Daily_Fragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Daily_Fragment.
+     * @return A new instance of fragment GridViewFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Daily_Fragment newInstance(String param1, String param2) {
-        Daily_Fragment fragment = new Daily_Fragment();
+    public static GridViewFragment newInstance(int position) {
+        GridViewFragment fragment = new GridViewFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        switch(position) {
+            case 0:
+                args.putParcelableArrayList("data", MainActivity.romance);
+                break;
+            case 1:
+                args.putParcelableArrayList("data", MainActivity.drama);
+                break;
+            case 2:
+                args.putParcelableArrayList("data", MainActivity.fantasy);
+                break;
+            case 3:
+                args.putParcelableArrayList("data", MainActivity.comedy);
+                break;
+            case 4:
+                args.putParcelableArrayList("data", MainActivity.thriller);
+                break;
+            case 5:
+                args.putParcelableArrayList("data", MainActivity.horror);
+                break;
+            case 6:
+                args.putParcelableArrayList("data", MainActivity.sol);
+                break;
+        }
         fragment.setArguments(args);
         return fragment;
     }
@@ -75,36 +80,40 @@ public class Daily_Fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            collection = getArguments().getParcelableArrayList("data");
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        final Context context = getActivity().getApplicationContext();
+        View rootView = inflater.inflate(R.layout.fragment_grid_view, container, false);
+
+        GridView gv = (GridView)rootView.findViewById(R.id.test_grid);
+        gv.setAdapter(new ComicAdapter(context, collection));
 
 
-        // Inflate the layout for this fragment
-        View ret = inflater.inflate(R.layout.fragment_daily_, container, false);
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        // Get view pager
-        dailyvp = (ViewPager)ret.findViewById(R.id.dailyvp);
-        // Get top tab layout navigation
-        TabLayout dailytabs = (TabLayout)ret.findViewById(R.id.dailytabs);
-        // set adapter for the view pager
-        dailyvp.setAdapter(new SchedulePA(getChildFragmentManager()));
-        // sync the tab with the view pager
-        dailytabs.setupWithViewPager(dailyvp);
-        // done and return the view
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // 1
+                Comix selectedComic = collection.get(position);
 
-        return ret;
-    }
+                // 2
+                Intent detailIntent = new Intent(context, ComicDetailActivity.class);
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+                // 3
+//                detailIntent.putParcelableArrayListExtra("chapters", selectedComic.chapters);
+                detailIntent.putExtra("comic", selectedComic);
 
+                // 4
+                startActivity(detailIntent);
+            }
+
+        });
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

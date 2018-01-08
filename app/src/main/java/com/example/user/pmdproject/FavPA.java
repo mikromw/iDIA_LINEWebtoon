@@ -46,4 +46,5 @@ public class FavPA extends FragmentStatePagerAdapter {
     public int getCount() {
         return pageTitles.length;
     }
+
 }

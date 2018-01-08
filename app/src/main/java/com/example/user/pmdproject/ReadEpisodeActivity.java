@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +21,9 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class ReadEpisodeActivity extends AppCompatActivity {
+
+    private RecyclerView rv;
+    private LoadPagesAdapter loadPagesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,31 +40,18 @@ public class ReadEpisodeActivity extends AppCompatActivity {
 //        ArrayList<Chapters> sample = this.getIntent().getParcelableArrayListExtra("chapters");
 
 //        Log.i("pjg", String.valueOf(sample.size()));
-        LinearLayout ll = (LinearLayout)findViewById(R.id.eps_preview);
+        rv = (RecyclerView)findViewById(R.id.pages_rv);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setHasFixedSize(true);
 
         String[] imgFiles = MainActivity.getBitmapsFromSubFolder(this, sample.chapterDirs);
 
-        Picasso mPicasso = Picasso.with(this);
+        loadPagesAdapter = new LoadPagesAdapter();
 
-        mPicasso.setIndicatorsEnabled(true);
+        /*setting user rv adapter: inject data to adapter*/
+        loadPagesAdapter.setArray(sample.chapterDirs, imgFiles);
 
-        for(int i=0; i < imgFiles.length; i++) {
-            Log.i("pjg", String.valueOf(imgFiles[i]));
-        }
-
-        Log.i("pjg", String.valueOf(imgFiles.length));
-//        Log.i("pjg", String.valueOf(thumbs.size()));
-        for(int i=0; i < imgFiles.length; i++) {
-            ImageView img = new ImageView(this);
-            img.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            img.setScaleType(ImageView.ScaleType.FIT_XY);
-            img.setAdjustViewBounds(true);
-            mPicasso.load("file:///android_asset/" + sample.chapterDirs + "/" + imgFiles[i])
-                    .networkPolicy(NetworkPolicy.OFFLINE)
-                    .into(img);
-
-            ll.addView(img);
-        }
+        rv.setAdapter(loadPagesAdapter);
 
     }
 
