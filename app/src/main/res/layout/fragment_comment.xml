@@ -3,11 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.user.pmdproject.CommentFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <TextView android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Login/masuk untuk melihat komentarmu" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MASUK"
+                android:layout_margin="20dp"
+                android:background="@color/darkGray"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
+    </FrameLayout>
