@@ -75,6 +75,7 @@ public class Comix implements Parcelable {
     public long likes;
     public String thumbnail;
     public ArrayList<Chapters> chapters;
+    public Chapters checkpoint;
     public String descr;
     public String author;
     public String title;
@@ -88,6 +89,7 @@ public class Comix implements Parcelable {
         this.genre = genre;
         this.likes = likes;
         this.isVisited = false;
+        checkpoint = null;
         this.chapters = new ArrayList<Chapters>();
     }
 
@@ -95,6 +97,7 @@ public class Comix implements Parcelable {
         likes = in.readLong();
         thumbnail = in.readString();
         chapters = in.createTypedArrayList(Chapters.CREATOR);
+        checkpoint = in.readParcelable(Chapters.class.getClassLoader());
         descr = in.readString();
         author = in.readString();
         title = in.readString();
@@ -124,6 +127,7 @@ public class Comix implements Parcelable {
         parcel.writeLong(likes);
         parcel.writeString(thumbnail);
         parcel.writeTypedList(chapters);
+        parcel.writeParcelable(checkpoint, i);
         parcel.writeString(descr);
         parcel.writeString(author);
         parcel.writeString(title);

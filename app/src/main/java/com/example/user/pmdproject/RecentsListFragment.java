@@ -35,16 +35,17 @@ public class RecentsListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // 1
-                Comix selectedComic = MainActivity.favorites.get(position);
+                Chapters selectedChapter = MainActivity.favorites.get(position).checkpoint;
 
                 // 2
-                Intent detailIntent = new Intent(context, ComicDetailActivity.class);
+                Intent readIntent = new Intent(context, ReadEpisodeActivity.class);
 
                 // 3
-                detailIntent.putExtra("comic", selectedComic);
+//                detailIntent.putParcelableArrayListExtra("chapters", selectedComic.chapters);
+                readIntent.putExtra("chapters", selectedChapter);
 
                 // 4
-                startActivity(detailIntent);
+                startActivity(readIntent);
             }
 
         });

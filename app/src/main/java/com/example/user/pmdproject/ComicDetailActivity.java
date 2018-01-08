@@ -57,6 +57,8 @@ public class ComicDetailActivity extends AppCompatActivity {
                     sample.isVisited = !sample.isVisited;
                 }
 
+                sample.checkpoint = selectedComic;
+
                 // 2
                 Intent readIntent = new Intent(ComicDetailActivity.this, ReadEpisodeActivity.class);
 
